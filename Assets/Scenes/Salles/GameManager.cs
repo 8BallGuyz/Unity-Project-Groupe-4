@@ -19,10 +19,37 @@ public class RoomManager : MonoBehaviour
 
     void Start()
     {
-        GenerateRoomSequence();
+
+        DontDestroyOnLoad(this);
+
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            GenerateRoomSequence();
+        }
+        else
+        {
+            LoadExistingRoomSequence(); // Récupère la séquence déjà définie
+        }
+
         Debug.Log("Tu es dans la salle : " + GetCurrentRoom());
         Debug.Log("La prochaine salle est : " + GetNextRoom());
     }
+
+    void LoadExistingRoomSequence()
+    {
+        Debug.Log("Chargement de la séquence existante...");
+        
+        // Si la liste des salles est déjà générée, on ne change rien.
+        if (roomsSequence.Count > 0)
+        {
+            Debug.Log("Séquence existante : " + string.Join(", ", roomsSequence));
+            return;
+        }
+
+        Debug.LogError("Aucune séquence trouvée, risque d'erreur !");
+    }
+
+
 
     void GenerateRoomSequence()
     {
@@ -48,6 +75,8 @@ public class RoomManager : MonoBehaviour
             }
         }
 
+        roomsSequence.Add("Salle_Fin"); // On ajoute la salle finale
+
         Debug.Log("Séquence des salles : " + string.Join(", ", roomsSequence));
 
 
@@ -64,13 +93,6 @@ public class RoomManager : MonoBehaviour
         else
         {
             Debug.LogError("Aucune salle générée !");
-        }
-        
-
-        menu_manager menu = FindObjectOfType<menu_manager>();
-        if (menu != null)
-        {
-            menu.LesSalles(); // Appelle la fonction LesSalles() après la génération des salles
         }
     }
 
@@ -91,7 +113,8 @@ public class RoomManager : MonoBehaviour
 
     public void LoadNextRoom()
     {
-        Debug.Log("Salle actuelle : " + currentRoomName + " | Prochaine salle : " + nextRoomName);
+        Debug.Log("Tu es dans la salle : " + GetCurrentRoom());
+        Debug.Log("La prochaine salle est : " + GetNextRoom());
 
         if (currentRoomIndex < roomsSequence.Count - 1)
         {
@@ -101,7 +124,7 @@ public class RoomManager : MonoBehaviour
             if (currentRoomIndex < roomsSequence.Count - 1)
                 nextRoomName = roomsSequence[currentRoomIndex + 1]; // Salle suivante
             else
-                nextRoomName = "Fin du parcours"; // Dernière salle atteinte
+                nextRoomName = "Salle_Fin"; // Dernière salle atteinte
 
             SceneManager.LoadScene(currentRoomName);
         }
@@ -119,7 +142,10 @@ public class RoomManager : MonoBehaviour
 
     public string GetNextRoom()
     {
-        return nextRoomName;
+        if (currentRoomIndex < roomsSequence.Count - 1)
+            return roomsSequence[currentRoomIndex + 1];
+        else
+            return "Salle_Fin"; // On force à retourner la salle finale
     }
 
 }
