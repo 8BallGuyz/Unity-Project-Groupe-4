@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class MonsterAI : MonoBehaviour
 
 {
+    public float timerDeath = 0;
+    public float endDeath = 3.5f;
+    private bool deathDetector = false;
 
     public AudioClip footstepsSound;  // Son des pattes (à assigner dans l'Inspector)
     private AudioSource footstepsAudioSource;  // Source audio dédiée aux pas
@@ -77,6 +81,15 @@ public class MonsterAI : MonoBehaviour
 
     void Update()
     {
+        if(deathDetector == true) 
+        {
+            timerDeath = timerDeath + Time.deltaTime;
+            if(timerDeath >= endDeath) 
+            {
+                SceneManager.LoadScene("Menu");
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         float volume = Mathf.Lerp(maxFootstepVolume, minFootstepVolume, distanceToPlayer / hearingRange);
@@ -252,16 +265,11 @@ public class MonsterAI : MonoBehaviour
 
             // La caméra du joueur regarde en permanence la tête du scolopendre
             player.LookAt(head.position);
+            deathDetector = true;
 
             yield return null;
         }
 
-        // Attendre 2 secondes avant de fermer le jeu
-        yield return new WaitForSeconds(2f);
-
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #endif
     }
 
     void QuitGame()
