@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Salle_1_Test.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Test.unity
+    path: Assets/Scenes/Salle_Test_3D_Antoine/Salle_Test_3D_Antoine.unity
     guid: c60356b9525622a4689a4f6b253fd281
   m_configObjects: {}
