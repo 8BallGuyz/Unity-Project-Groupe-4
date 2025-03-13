@@ -86,9 +86,19 @@ public class PlayerMovement : MonoBehaviour
         {
             isCrouching = false;
             controller.height = standingHeight;
-            speed = walkSpeed;
+
+            // Vérifier si on sprint après s'être accroupi
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = sprintSpeed;
+            }
+            else
+            {
+                speed = walkSpeed;
+            }
         }
     }
+
 
 
     void HandleJump()
