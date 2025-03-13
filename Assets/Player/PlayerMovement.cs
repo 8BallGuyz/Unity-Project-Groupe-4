@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
 
-        if (move.magnitude > 0.1f && isGrounded)
+        if (move.magnitude > 0.1f && isGrounded && !isCrouching)
         {
             // Increment timer smoothly
             timer += Time.deltaTime * (isRunning ? bobSprintSpeed : bobSpeed);
@@ -111,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
             isCrouching = true;
             controller.height = crouchingHeight;
             speed = crouchSpeed;
-            targetCamHeight = defaultCamHeight - 0.5f; // Lower camera while crouching
         }
         else // Quand on relâche Ctrl
         {
