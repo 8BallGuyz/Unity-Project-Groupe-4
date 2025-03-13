@@ -11,8 +11,24 @@ public class menu_manager : MonoBehaviour
     public Canvas settingsMenu_accessibility;
     public Canvas settingsMenu_controls;
 
+    public void LesSalles()
+    {
+        RoomManager roomManager = FindObjectOfType<RoomManager>();
+
+        if (roomManager != null)
+        {
+            Debug.Log("Tu es dans la salle : " + roomManager.GetCurrentRoom());
+            Debug.Log("La prochaine salle est : " + roomManager.GetNextRoom());
+        }
+        else
+        {
+            Debug.LogError("RoomManager non trouvé dans la scène !");
+        }
+    }
+
     void Start()
     {
+
 
         mainMenu.enabled = true;
 
@@ -23,7 +39,8 @@ public class menu_manager : MonoBehaviour
 
     public void Main()
     {
-        SceneManager.LoadScene("Salle_1");
+        RoomManager roomManager = FindObjectOfType<RoomManager>();
+        SceneManager.LoadScene(roomManager.GetCurrentRoom());
     }
 
     public void Menu() // au cas ou si on a un boutton pour revenir au Main Menu
