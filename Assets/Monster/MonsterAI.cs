@@ -4,7 +4,17 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class MonsterAI : MonoBehaviour
+
 {
+
+    public AudioClip footstepsSound;  // Son des pattes (à assigner dans l'Inspector)
+    private AudioSource footstepsAudioSource;  // Source audio dédiée aux pas
+    public float maxFootstepVolume = 1.0f; // Volume max du bruit de pas
+    public float minFootstepVolume = 0.2f; // Volume min du bruit de pas
+    public float hearingRange = 15f; // Distance à laquelle le bruit atteint son max
+
+
+
     public AudioClip screamerSound;  // Son du screamer (assigner dans l'Inspector)
     public GameObject screamerImage; // Image du screamer (UI à activer)
     public float screamerDuration = 2f; // Temps avant l'arrêt du jeu
@@ -36,6 +46,16 @@ public class MonsterAI : MonoBehaviour
 
     void Start()
     {
+
+        // Crée un nouvel AudioSource pour le bruit de pattes
+        footstepsAudioSource = gameObject.AddComponent<AudioSource>();
+        footstepsAudioSource.clip = footstepsSound;
+        footstepsAudioSource.loop = true;
+        footstepsAudioSource.volume = minFootstepVolume;
+        footstepsAudioSource.spatialBlend = 1.0f; // 3D sound
+        footstepsAudioSource.Play();
+
+
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = moveSpeed;
@@ -57,6 +77,11 @@ public class MonsterAI : MonoBehaviour
 
     void Update()
     {
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float volume = Mathf.Lerp(maxFootstepVolume, minFootstepVolume, distanceToPlayer / hearingRange);
+        footstepsAudioSource.volume = Mathf.Clamp(volume, minFootstepVolume, maxFootstepVolume);
+
         if (Input.GetKeyDown(KeyCode.U))
         {
             Debug.Log("🚨 Bruit détecté ! Le monstre attaque !");
@@ -238,9 +263,6 @@ public class MonsterAI : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }
-
-
-
 
     void QuitGame()
     {
