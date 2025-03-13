@@ -20974,6 +20974,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  cam: {fileID: 1600103492}
+  bobSpeed: 10
+  bobSprintSpeed: 12
+  bobAmount: 0.2
 --- !u!54 &1441564964
 Rigidbody:
   m_ObjectHideFlags: 0

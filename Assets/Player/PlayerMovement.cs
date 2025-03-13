@@ -24,12 +24,24 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     private bool isGrounded;
 
+    private bool isRunning = false;
+
+    // Head bobbing
+    public Camera cam;
+    public float bobSpeed = 10f;
+    public float bobSprintSpeed = 12f;
+    public float bobAmount = 0.2f;
+    private float defaultCamHeight;
+    private float targetCamHeight;
+    private float timer = 0;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         speed = walkSpeed;
 
         Cursor.lockState = CursorLockMode.Locked;
+        targetCamHeight = defaultCamHeight;
     }
 
     void Update()
@@ -49,6 +61,20 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        if (move.magnitude > 0.1f && isGrounded)
+        {
+            // Increment timer smoothly
+            timer += Time.deltaTime * (isRunning ? bobSprintSpeed : bobSpeed);
+
+            float bobOffset = Mathf.Sin(timer) * bobAmount;
+            cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, targetCamHeight + bobOffset, cam.transform.localPosition.z);
+        }
+        else
+        {
+            // Smoothly reset camera position when stopping movement
+            cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, Mathf.Lerp(cam.transform.localPosition.y, targetCamHeight, Time.deltaTime * 5f), cam.transform.localPosition.z);
+        }
     }
 
     void HandleLook()
@@ -67,10 +93,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && !isCrouching)
         {
             speed = sprintSpeed;
+            targetCamHeight = defaultCamHeight + 0.1f; // Slightly raise camera while sprinting
+            isRunning = true;
         }
         else if (!isCrouching)
         {
             speed = walkSpeed;
+            targetCamHeight = defaultCamHeight; // Reset base camera height
+            isRunning = false;
         }
     }
 
@@ -81,9 +111,11 @@ public class PlayerMovement : MonoBehaviour
             isCrouching = true;
             controller.height = crouchingHeight;
             speed = crouchSpeed;
+            targetCamHeight = defaultCamHeight - 0.5f; // Lower camera while crouching
         }
         else // Quand on relâche Ctrl
         {
+            targetCamHeight = defaultCamHeight; // Reset base camera height
             isCrouching = false;
             controller.height = standingHeight;
 
