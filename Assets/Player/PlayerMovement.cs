@@ -3,10 +3,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public int hp = 100;
-    public int stamina = 100;
-    public int sound = 100;
     public float walkSpeed = 5f;
     public float sprintSpeed = 8f;
+    public float defaultSprintSpeed;
     public float crouchSpeed = 2.5f;
     public float jumpHeight = 1.5f; // Hauteur du saut
     public float mouseSensitivity = 2f;
@@ -38,11 +37,43 @@ public class PlayerMovement : MonoBehaviour
     private float targetCamHeight;
     private float timer = 0;
 
+    [Space(10)]
+    [Header("STAMINA STATS")]
+    // Stamina Manager
+    public int stamina = 100;
+    public int staminaCap = 100;
+    public int staminaMin = 0;
+    public float timerStamina = 0;
+    public float endStamina = 0.1f;
+    public float timerStamina2 = 0;
+    public float endStamina2 = 0.1f;
+    private bool staminaLose = false;
+    private bool staminaBurnout = false;
+    private bool staminaRegen = false;
+    public float timerBurnout = 0;
+    public float endBurnout = 3;
+
+    [Space(10)]
+    [Header("SOUND STATS")]
+    // Sound Stat Manager
+    public float sound = 100;
+    public int soundCap = 100;
+    public int soundMin = 0;
+    public float timerSound = 0;
+    public float endSound = 0.2f;
+    public float timerSound2 = 0;
+    public float endSound2 = 0.2f;
+    public float timerSound3 = 0;
+    public float endSound3 = 0.2f;
+
+    public bool Speedy = true;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         speed = walkSpeed;
-
+        defaultSprintSpeed = sprintSpeed; // Initialize defaultSprintSpeed
+        defaultCamHeight = cam.transform.localPosition.y; // Initialize defaultCamHeight
         Cursor.lockState = CursorLockMode.Locked;
         targetCamHeight = defaultCamHeight;
     }
@@ -61,14 +92,30 @@ public class PlayerMovement : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        bool moving = (x != 0 || z != 0); // Check if player is moving
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
 
+        if(moving && !isRunning)
+        {
+
+            timerSound3 = timerSound3 + Time.deltaTime;
+            if(timerSound3 >= endSound3)
+            {
+                sound = sound + 1;
+                timerSound3 = 0;
+            }
+        }
+
+        // Fixed head bobbing to work with both walking and sprinting
         if (move.magnitude > 0.1f && isGrounded && !isCrouching)
         {
-            // Increment timer smoothly
-            timer += Time.deltaTime * (isRunning ? bobSprintSpeed : bobSpeed);
+            // Use the appropriate bob speed based on running state
+            float currentBobSpeed = isRunning ? bobSprintSpeed : bobSpeed;
+
+            // Increment timer using the current bob speed
+            timer += Time.deltaTime * currentBobSpeed;
 
             float bobOffset = Mathf.Sin(timer) * bobAmount;
             cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, targetCamHeight + bobOffset, cam.transform.localPosition.z);
@@ -93,29 +140,123 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleSprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching)
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * x + transform.forward * z;
+        bool moving = (x != 0 || z != 0); // Check if player is moving
+
+        if (Input.GetKey(KeyCode.LeftShift) && isCrouching == false && staminaBurnout == false && stamina > 0 && move.magnitude > 0.1f)
         {
             speed = sprintSpeed;
             targetCamHeight = defaultCamHeight + 0.1f; // Slightly raise camera while sprinting
             isRunning = true;
+            staminaLose = true;
+            staminaRegen = false;
+
         }
-        else if (!isCrouching)
+        else if (isCrouching == false)
         {
             speed = walkSpeed;
             targetCamHeight = defaultCamHeight; // Reset base camera height
             isRunning = false;
+            staminaLose = false;
+            staminaRegen = true;
+            timerStamina = 0;
+        }
+
+        if (stamina == 0)
+        {
+            staminaLose = false;
+            staminaRegen = false;
+            staminaBurnout = true;
+            timerStamina = 0;
+            sprintSpeed = walkSpeed;
+        }
+        else
+        {
+            sprintSpeed = defaultSprintSpeed;
+        }
+
+
+        // Stamina Usage
+        if (staminaLose == true && staminaBurnout == false && staminaRegen == false)
+        {
+            timerStamina += Time.deltaTime;
+            if (timerStamina >= endStamina && stamina > staminaMin)
+            {
+                stamina = stamina - 1;
+                timerStamina = 0;
+            }
+        }
+
+        // Stamina Regen
+        if (staminaRegen == true && staminaLose == false && staminaBurnout == false)
+        {
+            timerStamina2 += Time.deltaTime;
+            if (timerStamina2 >= endStamina && stamina < staminaCap)
+            {
+                stamina = stamina + 1;
+                timerStamina2 = 0;
+            }
+        }
+
+        // When the player reaches 0
+        if (staminaBurnout == true)
+        {
+            timerBurnout = timerBurnout + Time.deltaTime;
+            if (timerBurnout >= endBurnout)
+            {
+                staminaBurnout = false;
+                staminaRegen = true;
+                timerBurnout = 0;
+                stamina = stamina + 1;
+                speed = walkSpeed;
+                isRunning = false;
+            }
+        }
+
+        // Sound goes up when the player runs
+        // Detect movement
+        if (isRunning || moving)
+        {
+            timerSound2 += Time.deltaTime;
+
+            if (timerSound2 >= endSound2)
+            {
+                if (isRunning && sound < soundCap - 1)
+                {
+                    sound += 2; // Running increases sound faster
+                }
+                else if (sound < soundCap)
+                {
+                    sound += 1; // Walking increases sound normally
+                }
+
+                timerSound2 = 0; // Reset the timer
+            }
+        }
+
+        else if (isRunning == false || !moving)
+        {
+            // Walking or crouching decreases sound
+            timerSound = timerSound + Time.deltaTime;
+            if (timerSound >= endSound && sound > soundMin)
+            {
+                sound = sound - 1;
+                timerSound = 0;
+            }
         }
     }
 
     void HandleCrouch()
     {
-        if (Input.GetKey(KeyCode.LeftControl)) // Si on maintient Ctrl
+        if (Input.GetKey(KeyCode.LeftAlt)) // Si on maintient Alt
         {
             isCrouching = true;
             controller.height = crouchingHeight;
             speed = crouchSpeed;
         }
-        else // Quand on relâche Ctrl
+        else // Quand on relâche Alt
         {
             targetCamHeight = defaultCamHeight; // Reset base camera height
             isCrouching = false;
@@ -133,13 +274,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-
     void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Formule du saut réaliste
+            sound = sound + 75;
+            if(sound > 100)
+            {
+                sound = 100;
+            }
         }
     }
 
