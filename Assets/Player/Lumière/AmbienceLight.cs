@@ -15,6 +15,12 @@ public class ZoneLightTrigger : MonoBehaviour
 
     private float transitionSpeed = 2f; // Vitesse de transition
 
+
+    public void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) // Vérifie si c'est le joueur

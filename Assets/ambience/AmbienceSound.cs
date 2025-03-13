@@ -10,17 +10,16 @@ public class AmbienceManager : MonoBehaviour
     private AudioClip currentClip;
     private Coroutine fadeCoroutine;
 
+
     void Awake()
     {
         if (Instance == null)
             Instance = this;
         else
         {
-            Destroy(gameObject);
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
 
         // Ajouter un AudioSource et le configurer
         ambienceSource = gameObject.AddComponent<AudioSource>();

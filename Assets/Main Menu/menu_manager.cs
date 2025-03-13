@@ -13,6 +13,7 @@ public class menu_manager : MonoBehaviour
 
     void Start()
     {
+
         mainMenu.enabled = true;
 
         settingsMenu_general.enabled = false;
