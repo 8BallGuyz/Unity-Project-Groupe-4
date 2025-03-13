@@ -14,6 +14,7 @@ public class menu_manager : MonoBehaviour
     void Start()
     {
 
+        
         mainMenu.enabled = true;
 
         settingsMenu_general.enabled = false;
@@ -23,8 +24,20 @@ public class menu_manager : MonoBehaviour
 
     public void Main()
     {
-        SceneManager.LoadScene("Salle_1");
+        RoomManager roomManager = FindObjectOfType<RoomManager>();
+        SceneManager.LoadScene(roomManager.GetCurrentRoom());
+
+        if (roomManager != null)
+        {
+            roomManager.LoadNextRoom();
+        }
+        else
+        {
+            Debug.LogError("RoomManager introuvable !");
+        }
     }
+
+
 
     public void Menu() // au cas ou si on a un boutton pour revenir au Main Menu
     {

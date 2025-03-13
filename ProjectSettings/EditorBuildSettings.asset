@@ -17,4 +17,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Salle_Test_3D_Antoine/Salle_Test_3D_Antoine.unity
     guid: c60356b9525622a4689a4f6b253fd281
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_2.unity
+    guid: 09e994b0beb627843b18e4351e33448c
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_3.unity
+    guid: 6860742871523ba469c7d9fc12bb7370
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_4.unity
+    guid: f6c551e1850010f4e9e1e5c23bd8df09
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_5.unity
+    guid: 703caa157d891e648885fc642c2f0d0d
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_6.unity
+    guid: 8b6f0301845c9c44b9074c1d55e7196c
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_7.unity
+    guid: ba40b7d8d9142194daff97e4a5873dfa
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_8.unity
+    guid: dd0403b215818ea4695af20dd8f69151
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_9.unity
+    guid: 330007a3e6dab6a46bbd161a7ab0a8f8
+  - enabled: 1
+    path: Assets/Scenes/Salles/Salle_Achat.unity
+    guid: 7dc75f126ea526544aa4aec940e001f6
+  - enabled: 1
+    path: "Assets/Scenes/Salles/Salle_D\xE9but.unity"
+    guid: 7fb4d822a84691b4588506121271920a
   m_configObjects: {}
