@@ -1784,11 +1784,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 441367415}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &600427416
-=======
---- !u!1 &588247722
->>>>>>> 31933135006b3b9f9b610951c4b0ac035188c12c
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1796,25 +1792,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 600427418}
   - component: {fileID: 600427417}
   m_Layer: 0
   m_Name: '- Sound Manager -'
-=======
   - component: {fileID: 588247723}
   - component: {fileID: 588247726}
   - component: {fileID: 588247725}
   - component: {fileID: 588247724}
   m_Layer: 0
   m_Name: Cube (10)
->>>>>>> 31933135006b3b9f9b610951c4b0ac035188c12c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!114 &600427417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,15 +1820,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &600427418
-=======
 --- !u!4 &588247723
->>>>>>> 31933135006b3b9f9b610951c4b0ac035188c12c
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 600427416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1846,7 +1835,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
   m_GameObject: {fileID: 588247722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
@@ -1927,7 +1915,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588247722}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
->>>>>>> 31933135006b3b9f9b610951c4b0ac035188c12c
 --- !u!1 &615833923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,12 +3804,9 @@ GameObject:
   - component: {fileID: 1087007188}
   - component: {fileID: 1087007187}
   - component: {fileID: 1087007186}
-<<<<<<< HEAD
   m_Layer: 3
-=======
   - component: {fileID: 1087007189}
   m_Layer: 0
->>>>>>> 31933135006b3b9f9b610951c4b0ac035188c12c
   m_Name: Sol
   m_TagString: Ground
   m_Icon: {fileID: 0}
