@@ -22,7 +22,7 @@ public class menu_manager : MonoBehaviour
 
     public void Main()
     {
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("Salle_1_Test");
     }
 
     public void Menu() // au cas ou si on a un boutton pour revenir au Main Menu
