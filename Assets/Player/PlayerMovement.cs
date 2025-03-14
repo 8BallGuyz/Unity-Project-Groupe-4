@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public stats_manager stats;
+
     public int hp = 100;
+    public int maxhp = 100;
     public float walkSpeed = 5f;
     public float sprintSpeed = 8f;
     public float defaultSprintSpeed;
@@ -65,8 +68,7 @@ public class PlayerMovement : MonoBehaviour
     public float endSound2 = 0.2f;
     public float timerSound3 = 0;
     public float endSound3 = 0.2f;
-
-    public bool Speedy = true;
+    private bool soundController = false; 
 
     void Start()
     {
@@ -76,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
         defaultCamHeight = cam.transform.localPosition.y; // Initialize defaultCamHeight
         Cursor.lockState = CursorLockMode.Locked;
         targetCamHeight = defaultCamHeight;
+
+        stats = FindObjectOfType<stats_manager>();
+        stats.SetMaxStaminaUI(staminaCap);
+        stats.SetMaxSoundUI(soundCap);
+        stats.SetMaxHpUI(maxhp);
     }
 
     void Update()
@@ -86,6 +93,11 @@ public class PlayerMovement : MonoBehaviour
         HandleCrouch();
         HandleJump();
         ApplyGravity();
+    }
+
+    void HandleHP() // NOT SET YET
+    {
+        stats.HpUI(hp);
     }
 
     void HandleMovement()
@@ -144,6 +156,8 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
         bool moving = (x != 0 || z != 0); // Check if player is moving
+        stats.StaminaUI(stamina);
+        stats.SoundUI(sound);
 
         if (Input.GetKey(KeyCode.LeftShift) && isCrouching == false && staminaBurnout == false && stamina > 0 && move.magnitude > 0.1f)
         {
@@ -152,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
             isRunning = true;
             staminaLose = true;
             staminaRegen = false;
+            stats.StaminaUI(stamina);
 
         }
         else if (isCrouching == false)
@@ -215,31 +230,47 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Sound goes up when the player runs
-        // Detect movement
-        if (isRunning || moving)
+        if (isRunning && soundController == false) // Sound goes up when running
         {
             timerSound2 += Time.deltaTime;
-
-            if (timerSound2 >= endSound2)
+            if (timerSound2 >= endSound2 )
             {
-                if (isRunning && sound < soundCap - 1)
-                {
-                    sound += 2; // Running increases sound faster
-                }
-                else if (sound < soundCap)
-                {
-                    sound += 1; // Walking increases sound normally
-                }
-
-                timerSound2 = 0; // Reset the timer
+                sound = Mathf.Min(sound + 1, soundCap);
+                timerSound2 = 0;
             }
         }
-
-        else if (isRunning == false || !moving)
+        else if (!isCrouching && moving && soundController == false) // Sound goes up when walking
         {
-            // Walking or crouching decreases sound
-            timerSound = timerSound + Time.deltaTime;
+            timerSound3 += Time.deltaTime;
+            if (timerSound3 >= endSound3)
+            {
+                sound = Mathf.Min(sound + 1, soundCap);
+                timerSound3 = 0;
+            }
+        }
+        else if (!moving && soundController == false) // Sound goes down only when fully idle
+        {
+            timerSound += Time.deltaTime;
+            if (timerSound >= endSound)
+            {
+                sound = Mathf.Max(sound - 1, soundMin);
+                timerSound = 0;
+            }
+        }
+        else if (isCrouching && !moving && soundController == false) // Sound also decreases when crouching and stationary
+        {
+            timerSound += Time.deltaTime;
+            if (timerSound >= endSound)
+            {
+                sound = Mathf.Max(sound - 1, soundMin);
+                timerSound = 0;
+            }
+        }
+        else if (isCrouching && moving) // Sound also decreases when crouching and stationary
+        {
+            soundController = true;
+            endSound = 0.35f;
+            timerSound += Time.deltaTime;
             if (timerSound >= endSound && sound > soundMin)
             {
                 sound = sound - 1;
@@ -258,6 +289,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else // Quand on relâche Alt
         {
+            soundController = false;
+            endSound = 0.5f;
             targetCamHeight = defaultCamHeight; // Reset base camera height
             isCrouching = false;
             controller.height = standingHeight;
