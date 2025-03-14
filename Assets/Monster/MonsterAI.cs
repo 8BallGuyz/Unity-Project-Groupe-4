@@ -90,7 +90,7 @@ public class MonsterAI : MonoBehaviour
             timerDeath = timerDeath + Time.deltaTime;
             if(timerDeath >= endDeath) 
             {
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("GameOver");
                 Cursor.lockState = CursorLockMode.None;
             }
         }

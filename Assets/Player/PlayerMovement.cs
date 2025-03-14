@@ -72,14 +72,16 @@ public class PlayerMovement : MonoBehaviour
     private bool soundController = false; 
     private string lastSceneName;
 
-    private bool tpPlayerB = true;
 
     void Start()
     {
 
+        DifficultyManager.LoadDifficulty();
+        Debug.Log("Difficulté actuelle : " + DifficultyManager.CurrentDifficulty);
+
         // lastSceneName = SceneManager.GetActiveScene().name;
 
-        DontDestroyOnLoad(this);
+    
 
         controller = GetComponent<CharacterController>();
         speed = walkSpeed;
@@ -92,6 +94,9 @@ public class PlayerMovement : MonoBehaviour
         stats.SetMaxStaminaUI(staminaCap);
         stats.SetMaxSoundUI(soundCap);
         stats.SetMaxHpUI(maxhp);
+
+
+
     }
 
     void Update()
@@ -102,25 +107,6 @@ public class PlayerMovement : MonoBehaviour
         HandleCrouch();
         HandleJump();
         ApplyGravity();
-
-
-        // string currentSceneName = SceneManager.GetActiveScene().name;
-
-        // if (currentSceneName != lastSceneName)
-        // {
-        //     Debug.Log("La scène a changé : " + currentSceneName);
-        //     lastSceneName = currentSceneName;
-
-        //     if (tpPlayerB == true)
-        //     {
-        //        tpPlayer();
-        //     }
-        // }
-    }
-
-    void tpPlayer()
-    {
-        transform.position = new Vector3(49.3f, 1.112f, -1.5f);
     }
 
     void HandleHP() // NOT SET YET

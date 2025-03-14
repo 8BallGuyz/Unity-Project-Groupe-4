@@ -11,6 +11,24 @@ public class menu_manager : MonoBehaviour
     public Canvas settingsMenu_luminosite;
     public Canvas settingsMenu_touches;
     public Canvas credits;
+    public Canvas Partie_menu;
+    public Canvas Mode_menu;
+
+    public void SetEasy() 
+    { 
+        DifficultyManager.SetDifficulty(0); 
+        Main();
+    }
+    public void SetMedium() 
+    { 
+        DifficultyManager.SetDifficulty(1); 
+        Main();
+    }
+    public void SetHard() 
+    { 
+        DifficultyManager.SetDifficulty(2); 
+        Main();
+    }
 
     void Start()
     {
@@ -22,6 +40,8 @@ public class menu_manager : MonoBehaviour
         settingsMenu_luminosite.enabled = false;
         settingsMenu_touches.enabled = false;
         credits.enabled = false;
+        Partie_menu.enabled = false;
+        Mode_menu.enabled = false;
     }
 
     public void Main()
@@ -40,6 +60,31 @@ public class menu_manager : MonoBehaviour
     }
 
 
+    public void Partie() // au cas ou si on a un boutton pour revenir au Main Menu
+    {
+        Partie_menu.enabled = true;
+
+        mainMenu.enabled = false;
+        settingsMenu_volume.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        settingsMenu_touches.enabled = false;
+        credits.enabled = false;
+        Mode_menu.enabled = false;
+    }
+
+    public void Mode() // au cas ou si on a un boutton pour revenir au Main Menu
+    {
+
+        Mode_menu.enabled = true;
+
+        Partie_menu.enabled = false;
+        mainMenu.enabled = false;
+        settingsMenu_volume.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        settingsMenu_touches.enabled = false;
+        credits.enabled = false;
+    }
+
 
     public void Menu() // au cas ou si on a un boutton pour revenir au Main Menu
     {
@@ -49,6 +94,8 @@ public class menu_manager : MonoBehaviour
         settingsMenu_luminosite.enabled = false;
         settingsMenu_touches.enabled = false;
         credits.enabled = false;
+        Partie_menu.enabled = false;
+        Mode_menu.enabled = false;
     }
 
     public void Settings_General()
@@ -59,6 +106,8 @@ public class menu_manager : MonoBehaviour
         settingsMenu_luminosite.enabled = false;
         settingsMenu_touches.enabled = false;
         credits.enabled = false;
+        Partie_menu.enabled = false;
+        Mode_menu.enabled = false;
     }
 
     public void Settings_Accessibility()
@@ -69,6 +118,8 @@ public class menu_manager : MonoBehaviour
         mainMenu.enabled = false;
         settingsMenu_touches.enabled = false;
         credits.enabled = false;
+        Partie_menu.enabled = false;
+        Mode_menu.enabled = false;
     }
 
     public void Settings_Controls()
@@ -79,6 +130,8 @@ public class menu_manager : MonoBehaviour
         mainMenu.enabled = false;
         settingsMenu_luminosite.enabled = false;
         credits.enabled = false;
+        Partie_menu.enabled = false;
+        Mode_menu.enabled = false;
     }
 
     public void Credits()
@@ -89,6 +142,8 @@ public class menu_manager : MonoBehaviour
         mainMenu.enabled = false;
         settingsMenu_luminosite.enabled = false;
         settingsMenu_touches.enabled = false;
+        Partie_menu.enabled = false;
+        Mode_menu.enabled = false;
     }
 
     public void Quit()

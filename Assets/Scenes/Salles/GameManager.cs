@@ -15,6 +15,8 @@ public class RoomManager : MonoBehaviour
     private int currentRoomIndex = 0;
     private List<string> roomsSequence = new List<string>();
 
+    
+
 
 
     void Start()
@@ -22,8 +24,11 @@ public class RoomManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
+        // DifficultyManager.LoadDifficulty();
+        // Debug.Log("Difficulté actuelle : " + DifficultyManager.CurrentDifficulty);
+
         if (SceneManager.GetActiveScene().name == "Menu")
-        {
+        {   
             GenerateRoomSequence();
         }
         else

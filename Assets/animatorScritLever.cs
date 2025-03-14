@@ -14,7 +14,7 @@ public class animatorScritLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if input.GetKeyDown(KeyCode.T)
+        if (Input.GetKeyDown(KeyCode.T))
         {
             animLever.SetTrigger("AnimTriggerLever");
         }
