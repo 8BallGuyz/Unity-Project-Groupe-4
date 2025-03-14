@@ -19,7 +19,7 @@ public class stats_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        player = FindObjectOfType<PlayerMovement>();
     }
 
 

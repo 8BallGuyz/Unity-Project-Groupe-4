@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class menu_manager : MonoBehaviour
 {
     public Canvas mainMenu;
-    public Canvas settingsMenu_general;
-    public Canvas settingsMenu_accessibility;
-    public Canvas settingsMenu_controls;
+    public Canvas settingsMenu_volume;
+    public Canvas settingsMenu_luminosite;
+    public Canvas settingsMenu_touches;
+    public Canvas credits;
 
     void Start()
     {
@@ -17,9 +18,10 @@ public class menu_manager : MonoBehaviour
         
         mainMenu.enabled = true;
 
-        settingsMenu_general.enabled = false;
-        settingsMenu_accessibility.enabled = false;
-        settingsMenu_controls.enabled = false;
+        settingsMenu_volume.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Main()
@@ -43,36 +45,50 @@ public class menu_manager : MonoBehaviour
     {
         mainMenu.enabled = true;
 
-        settingsMenu_general.enabled = false;
-        settingsMenu_accessibility.enabled = false;
-        settingsMenu_controls.enabled = false;
+        settingsMenu_volume.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Settings_General()
     {
-        settingsMenu_general.enabled = true;
+        settingsMenu_volume.enabled = true;
 
         mainMenu.enabled = false;
-        settingsMenu_accessibility.enabled = false;
-        settingsMenu_controls.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Settings_Accessibility()
     {
-        settingsMenu_accessibility.enabled = true;
+        settingsMenu_luminosite.enabled = true;
 
-        settingsMenu_general.enabled = false;
+        settingsMenu_volume.enabled = false;
         mainMenu.enabled = false;
-        settingsMenu_controls.enabled = false;
+        settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Settings_Controls()
     {
-        settingsMenu_controls.enabled = true;
+        settingsMenu_touches.enabled = true;
 
-        settingsMenu_general.enabled = false;
+        settingsMenu_volume.enabled = false;
         mainMenu.enabled = false;
-        settingsMenu_accessibility.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        credits.enabled = false;
+    }
+
+    public void Credits()
+    {
+        credits.enabled = true;
+
+        settingsMenu_volume.enabled = false;
+        mainMenu.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        settingsMenu_touches.enabled = false;
     }
 
     public void Quit()
