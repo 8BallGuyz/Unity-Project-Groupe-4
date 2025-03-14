@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationSwitcher : MonoBehaviour
 {
     private Animator animator;
-    private bool hasClickedLeft = false; // Empêche de cliquer plusieurs fois
+    private bool hasClickedLeft = false;
 
     void Start()
     {
