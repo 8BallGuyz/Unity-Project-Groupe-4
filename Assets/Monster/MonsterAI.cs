@@ -8,6 +8,9 @@ public class MonsterAI : MonoBehaviour
 
 {
 
+    private Transform currentWaypoint;
+
+
     public bool growing = true;
     public float timerDeath = 0;
     public float endDeath = 3.5f;

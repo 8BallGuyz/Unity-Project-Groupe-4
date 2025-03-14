@@ -9,11 +9,11 @@ public class ZoneLightTrigger : MonoBehaviour
     private Color labColor = new Color32(130, 36, 36, 255); // Rouge du Lab
 
     private float insideIntensity = 5f;
-    private float labIntensity = 4f;
+    private float labIntensity = 3f;
     private float outsideIntensity = 2.5f;
     
     private float insideRange = 23f;  // Portée de la lumière à l'intérieur
-    private float labRange = 18f;  // Portée de la lumière dans le Lab
+    private float labRange = 15f;  // Portée de la lumière dans le Lab
     private float outsideRange = 12f;  // Portée de la lumière à l'extérieur
 
     private float transitionSpeed = 2f; // Vitesse de transition
