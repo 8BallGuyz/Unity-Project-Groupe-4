@@ -105,8 +105,12 @@ public class MonsterAI : MonoBehaviour
 
         if (playerMovement.sound == 100)
         {
-            Debug.Log(playerMovement.sound);
-            StartChasing();
+            if (hasScreamed == false)
+            {
+                Debug.Log(playerMovement.sound);
+                StartChasing();
+            }
+
         }
 
         if (isChasing)
@@ -115,7 +119,7 @@ public class MonsterAI : MonoBehaviour
             agent.SetDestination(player.position);
 
             float distance = Vector3.Distance(transform.position, player.position);
-            if (distance < 5.0f && !playerCaptured)
+            if (distance < 4.0f && !playerCaptured)
             {
                 Debug.Log("💀 Le scolopendre a attrapé le joueur !");
                 TriggerScreamer();

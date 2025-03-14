@@ -2864,7 +2864,7 @@ PrefabInstance:
     - target: {fileID: 1721425924936655120, guid: f561d71fe1036cd46bd86e7a01a53be2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.3592834
+      value: 1.359314
       objectReference: {fileID: 0}
     - target: {fileID: 1721425924936655120, guid: f561d71fe1036cd46bd86e7a01a53be2,
         type: 3}
@@ -3310,9 +3310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 918030397}
-  settingsMenu_general: {fileID: 727201206}
-  settingsMenu_accessibility: {fileID: 0}
-  settingsMenu_controls: {fileID: 0}
+  settingsMenu_volume: {fileID: 727201206}
+  settingsMenu_luminosite: {fileID: 1774423189}
+  settingsMenu_touches: {fileID: 2079004366}
 --- !u!1 &1720038268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,6 +3621,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753750620}
   m_CullTransparentMesh: 1
+--- !u!223 &1774423189 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5230593754255216453, guid: f561d71fe1036cd46bd86e7a01a53be2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1669995597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1808057248
 GameObject:
   m_ObjectHideFlags: 0
