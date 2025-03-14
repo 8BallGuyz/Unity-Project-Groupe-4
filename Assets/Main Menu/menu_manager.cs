@@ -27,14 +27,14 @@ public class menu_manager : MonoBehaviour
         RoomManager roomManager = FindObjectOfType<RoomManager>();
         SceneManager.LoadScene(roomManager.GetCurrentRoom());
 
-        if (roomManager != null)
-        {
-            roomManager.LoadNextRoom();
-        }
-        else
-        {
-            Debug.LogError("RoomManager introuvable !");
-        }
+        // if (roomManager != null)
+        // {
+        //     roomManager.LoadNextRoom();
+        // }
+        // else
+        // {
+        //     Debug.LogError("RoomManager introuvable !");
+        // }
     }
 
 
