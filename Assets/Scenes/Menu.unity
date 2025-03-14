@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.09433961, g: 0.02425068, b: 0.020469902, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -4509,6 +4509,12 @@ PrefabInstance:
 --- !u!224 &2079004363 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7118776587158136997, guid: f561d71fe1036cd46bd86e7a01a53be2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2079004362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &2079004366 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5230593754255216453, guid: f561d71fe1036cd46bd86e7a01a53be2,
     type: 3}
   m_PrefabInstance: {fileID: 2079004362}
   m_PrefabAsset: {fileID: 0}
