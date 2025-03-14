@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MonsterAI : MonoBehaviour
 
 {
+
+    public bool growing = true;
     public float timerDeath = 0;
     public float endDeath = 3.5f;
     private bool deathDetector = false;
@@ -17,8 +19,8 @@ public class MonsterAI : MonoBehaviour
     public float minFootstepVolume = 0.2f; // Volume min du bruit de pas
     public float hearingRange = 15f; // Distance à laquelle le bruit atteint son max
 
-
-
+    public AudioClip poursuite;
+    public AudioClip grow;
     public AudioClip screamerSound;  // Son du screamer (assigner dans l'Inspector)
     public GameObject screamerImage; // Image du screamer (UI à activer)
     public float screamerDuration = 2f; // Temps avant l'arrêt du jeu
@@ -47,6 +49,8 @@ public class MonsterAI : MonoBehaviour
     private bool isChasing = false;
     private float chaseTimer = 0f;
     private bool playerCaptured = false;
+    public float time = 0;
+    public float end = 3f;
 
     void Start()
     {
@@ -103,8 +107,12 @@ public class MonsterAI : MonoBehaviour
             Debug.Log(playerMovement.sound);
         }
 
+
         if (playerMovement.sound == 100)
         {
+
+            growMonster();
+
             if (hasScreamed == false)
             {
                 Debug.Log(playerMovement.sound);
@@ -119,6 +127,11 @@ public class MonsterAI : MonoBehaviour
             agent.SetDestination(player.position);
 
             float distance = Vector3.Distance(transform.position, player.position);
+
+            // if (distance > 40.0f && !playerCaptured)
+            // {
+                
+            // }
             if (distance < 4.0f && !playerCaptured)
             {
                 Debug.Log("💀 Le scolopendre a attrapé le joueur !");
@@ -141,6 +154,24 @@ public class MonsterAI : MonoBehaviour
         }
 
         MoveSegments();
+    }
+
+
+    void growMonster()
+    {
+
+        if (isChasing == false)
+        {
+            growing = true;
+        }
+
+        if (growing == true)
+        {
+            audioSource.PlayOneShot(grow);
+            growing = false;
+        }
+
+        Debug.Log(growing);
     }
 
     void SetNewDestination()
