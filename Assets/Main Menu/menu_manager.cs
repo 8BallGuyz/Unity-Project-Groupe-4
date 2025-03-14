@@ -10,6 +10,7 @@ public class menu_manager : MonoBehaviour
     public Canvas settingsMenu_volume;
     public Canvas settingsMenu_luminosite;
     public Canvas settingsMenu_touches;
+    public Canvas credits;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class menu_manager : MonoBehaviour
         settingsMenu_volume.enabled = false;
         settingsMenu_luminosite.enabled = false;
         settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Main()
@@ -46,6 +48,7 @@ public class menu_manager : MonoBehaviour
         settingsMenu_volume.enabled = false;
         settingsMenu_luminosite.enabled = false;
         settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Settings_General()
@@ -55,6 +58,7 @@ public class menu_manager : MonoBehaviour
         mainMenu.enabled = false;
         settingsMenu_luminosite.enabled = false;
         settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Settings_Accessibility()
@@ -64,6 +68,7 @@ public class menu_manager : MonoBehaviour
         settingsMenu_volume.enabled = false;
         mainMenu.enabled = false;
         settingsMenu_touches.enabled = false;
+        credits.enabled = false;
     }
 
     public void Settings_Controls()
@@ -73,6 +78,17 @@ public class menu_manager : MonoBehaviour
         settingsMenu_volume.enabled = false;
         mainMenu.enabled = false;
         settingsMenu_luminosite.enabled = false;
+        credits.enabled = false;
+    }
+
+    public void Credits()
+    {
+        credits.enabled = true;
+
+        settingsMenu_volume.enabled = false;
+        mainMenu.enabled = false;
+        settingsMenu_luminosite.enabled = false;
+        settingsMenu_touches.enabled = false;
     }
 
     public void Quit()
