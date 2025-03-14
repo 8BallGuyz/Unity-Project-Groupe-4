@@ -312,7 +312,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Formule du saut réaliste
-            sound = sound + 75;
+            sound = sound + 35;
             if(sound > 100)
             {
                 sound = 100;

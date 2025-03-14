@@ -40,7 +40,7 @@ public class MonsterAI : MonoBehaviour
     public float moveSpeed = 6.5f;
     public float patrolRange = 20f;
     public float rotationSpeed = 10f;
-    public float chaseDuration = 3f;
+    public float chaseDuration = 1f;
 
     private NavMeshAgent agent;
     private List<Transform> segments = new List<Transform>();
@@ -95,9 +95,17 @@ public class MonsterAI : MonoBehaviour
         float volume = Mathf.Lerp(maxFootstepVolume, minFootstepVolume, distanceToPlayer / hearingRange);
         footstepsAudioSource.volume = Mathf.Clamp(volume, minFootstepVolume, maxFootstepVolume);
 
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+
         if (Input.GetKeyDown(KeyCode.U))
         {
             Debug.Log("🚨 Bruit détecté ! Le monstre attaque !");
+            Debug.Log(playerMovement.sound);
+        }
+
+        if (playerMovement.sound == 100)
+        {
+            Debug.Log(playerMovement.sound);
             StartChasing();
         }
 

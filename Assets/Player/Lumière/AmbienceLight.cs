@@ -29,13 +29,13 @@ public class ZoneLightTrigger : MonoBehaviour
         if (other.CompareTag("Player")) 
         {
             // Vérifie dans quelle zone il entre
-            if (gameObject.CompareTag("LabZone") && currentZone != "Lab") 
+            if (gameObject.CompareTag("LabZone")) 
             {
                 currentZone = "Lab";
                 StopAllCoroutines();
                 StartCoroutine(ChangeLight(labIntensity, labColor, labRange));
             }
-            else if (gameObject.CompareTag("InsideZone") && currentZone != "Inside") 
+            else if (gameObject.CompareTag("InsideZone")) 
             {
                 currentZone = "Inside";
                 StopAllCoroutines();
