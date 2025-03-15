@@ -42,7 +42,7 @@ public class MonsterAI : MonoBehaviour
     public GameObject segmentPrefab;
     public int segmentCount = 8;
     public float segmentSpacing = 1.5f;
-    public float moveSpeed = 6.5f;
+    public float moveSpeed = 6.3f;
     public float patrolRange = 20f;
     public float rotationSpeed = 10f;
     public float chaseDuration = 1f;
