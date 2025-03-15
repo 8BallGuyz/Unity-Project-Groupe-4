@@ -15299,6 +15299,7 @@ MonoBehaviour:
   crouchSpeed: 2
   jumpHeight: 1.8
   mouseSensitivity: 2
+  speed: 0
   playerCamera: {fileID: 658570567}
   gravity: -20
   groundCheck: {fileID: 576022944}
@@ -20510,6 +20511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ebf828594dd4342bb7eb3443446ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animLever: {fileID: 0}
 --- !u!1 &1297917170
 GameObject:
   m_ObjectHideFlags: 0
