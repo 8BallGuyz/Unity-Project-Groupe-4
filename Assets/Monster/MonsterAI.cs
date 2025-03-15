@@ -47,9 +47,9 @@ public class MonsterAI : MonoBehaviour
     public float rotationSpeed = 10f;
     public float chaseDuration = 1f;
 
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private List<Transform> segments = new List<Transform>();
-    private bool isChasing = false;
+    public bool isChasing = false;
     private float chaseTimer = 0f;
     private bool playerCaptured = false;
     public float time = 0;
@@ -209,7 +209,7 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    void StartChasing()
+    public void StartChasing()
     {
         isChasing = true;
         chaseTimer = chaseDuration;

@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 1.5f; // Hauteur du saut
     public float mouseSensitivity = 2f;
 
-    private float speed;
+    public float speed;
     private CharacterController controller;
     private float xRotation = 0f;
     public Transform playerCamera;
