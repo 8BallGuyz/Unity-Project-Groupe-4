@@ -5,11 +5,12 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public GameObject PickupText;
-    public GameObject TimeSwapOnPlayer;
+    public GameObject ItemOnPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        TimeSwapOnPlayer.SetActive(false);
+        ItemOnPlayer.SetActive(false);
         PickupText.SetActive(false);
     }
 
@@ -23,7 +24,7 @@ public class Pickup : MonoBehaviour
             {
                 this.gameObject.SetActive(false);
                 
-                TimeSwapOnPlayer.SetActive(true);
+                ItemOnPlayer.SetActive(true);
 
                 PickupText.SetActive(false);
             }
