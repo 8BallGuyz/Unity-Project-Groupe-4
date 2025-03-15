@@ -5,12 +5,12 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public GameObject PickupText;
-    public GameObject ItemOnPlayer;
+    public GameObject ItemQuiSeraSurLeJoueur;
 
     // Start is called before the first frame update
     void Start()
     {
-        ItemOnPlayer.SetActive(false);
+        ItemQuiSeraSurLeJoueur.SetActive(false);
         PickupText.SetActive(false);
     }
 
@@ -24,7 +24,7 @@ public class Pickup : MonoBehaviour
             {
                 this.gameObject.SetActive(false);
                 
-                ItemOnPlayer.SetActive(true);
+                ItemQuiSeraSurLeJoueur.SetActive(true);
 
                 PickupText.SetActive(false);
             }
