@@ -9,8 +9,7 @@ public class MonsterAI : MonoBehaviour
 {
 
     private Transform currentWaypoint;
-
-
+    public GameObject keyObject;
     public bool growing = true;
     public float timerDeath = 0;
     public float endDeath = 3.5f;
@@ -34,6 +33,10 @@ public class MonsterAI : MonoBehaviour
 
     public Renderer eyeRenderer;
     public Renderer eyeRenderer2;
+    public Renderer eyeRenderer3;
+    public Renderer eyeRenderer4;
+    public Renderer eyeRenderer5;
+    public Renderer eyeRenderer6;
     public Material eyesNormal;
     public Material eyesChase;
 
@@ -57,6 +60,8 @@ public class MonsterAI : MonoBehaviour
 
     void Start()
     {
+
+        keyObject.SetActive(false);
 
         // Crée un nouvel AudioSource pour le bruit de pattes
         footstepsAudioSource = gameObject.AddComponent<AudioSource>();
@@ -219,6 +224,10 @@ public class MonsterAI : MonoBehaviour
         {
             eyeRenderer.material = eyesChase;
             eyeRenderer2.material = eyesChase;
+            eyeRenderer3.material = eyesChase;
+            eyeRenderer4.material = eyesChase;
+            eyeRenderer5.material = eyesChase;
+            eyeRenderer6.material = eyesChase;
         }
     }
 
@@ -230,6 +239,10 @@ public class MonsterAI : MonoBehaviour
         {
             eyeRenderer.material = eyesNormal;
             eyeRenderer2.material = eyesNormal;
+            eyeRenderer3.material = eyesNormal;
+            eyeRenderer4.material = eyesNormal;
+            eyeRenderer5.material = eyesNormal;
+            eyeRenderer6.material = eyesNormal;
         }
 
         SetNewDestination();
