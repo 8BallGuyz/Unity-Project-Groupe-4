@@ -14,7 +14,7 @@ public class ZoneLightTrigger : MonoBehaviour
     
     private float insideRange = 23f;  // Portée de la lumière à l'intérieur
     public float labRange = 15f;  // Portée de la lumière dans le Lab
-    private float outsideRange = 12f;  // Portée de la lumière à l'extérieur
+    private float outsideRange = 10f;  // Portée de la lumière à l'extérieur
 
     private float transitionSpeed = 2f; // Vitesse de transition
     public string currentZone = "Outside"; // Par défaut, le joueur est dehors

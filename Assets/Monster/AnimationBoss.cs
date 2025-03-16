@@ -21,6 +21,8 @@ public class AnimationBossTrigger : MonoBehaviour
 
     void Start()
     {
+
+        
         player = FindObjectOfType<PlayerMovement>();
         if (player == null)
         {
@@ -48,6 +50,7 @@ public class AnimationBossTrigger : MonoBehaviour
 
     IEnumerator BossSequence()
     {
+
         isSequenceActive = true;
         triggerCollider.enabled = false;
 
@@ -129,6 +132,7 @@ public class AnimationBossTrigger : MonoBehaviour
         }
 
         camTransform.rotation = targetRotation;
+
     }
 
     IEnumerator MoveMonster(MonsterAI monster, Vector3 targetPosition)
@@ -154,8 +158,5 @@ public class AnimationBossTrigger : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log($"Position initiale du scolopendre : {transform.position}");
-        Debug.Log($"Distance au TargetPoint à l'apparition : {Vector3.Distance(transform.position, targetPoint.position)}");
-        Debug.Log("🕷️ Le scolopendre a atteint sa position !");
     }
 }
