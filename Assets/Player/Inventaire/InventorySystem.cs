@@ -7,6 +7,7 @@ public class InventorySystem : MonoBehaviour
 
     public List<GameObject> items = new List<GameObject>();
     public List<Sprite> itemIcons = new List<Sprite>();
+    public List<GameObject> itemModels = new List<GameObject>(); // 🔹 Stockage des modèles 3D
 
     public int maxSlots = 9;
 
@@ -15,7 +16,7 @@ public class InventorySystem : MonoBehaviour
         if (instance == null) instance = this;
     }
 
-    public bool AddItem(GameObject item, Sprite icon)
+    public bool AddItem(GameObject item, Sprite icon, GameObject model)
     {
         if (items.Count >= maxSlots)
         {
@@ -24,10 +25,10 @@ public class InventorySystem : MonoBehaviour
         }
 
         items.Add(item);
-        itemIcons.Add(icon); // Maintenant on passe bien l'icône
+        itemIcons.Add(icon);
+        itemModels.Add(model); // 🔹 Ajoute le modèle 3D à la liste
         FindObjectOfType<InventoryUI>()?.RefreshUI();
-        Debug.Log($"🆕 Ajouté : {item.name}, Icône : {(icon != null ? icon.name : "Aucune !")}");
+        Debug.Log($"🆕 Ajouté : {item.name}, Icône : {(icon != null ? icon.name : "Aucune !")}, Modèle : {model.name}");
         return true;
     }
-
 }
