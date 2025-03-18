@@ -20,7 +20,6 @@ public class CreditScroll : MonoBehaviour
             gameObject.SetActive(true);
         }
         rectTransform = GetComponent<RectTransform>();
-        startY = rectTransform.anchoredPosition.y;
         endY = rectTransform.sizeDelta.y;
         scrollView.verticalNormalizedPosition = 1;
         scrollView.vertical = false; 
