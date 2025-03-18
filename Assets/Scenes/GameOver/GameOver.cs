@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour
 
     public GameObject Boutton_Reesayer; // Assigne ton bouton dans l'Inspector
 
-    public void HideButton()
+    public void HideButton()  
     {
         Boutton_Reesayer.SetActive(false); // Cache le bouton
     }
