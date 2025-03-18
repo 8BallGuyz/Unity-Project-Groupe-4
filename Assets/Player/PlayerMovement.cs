@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public stats_manager stats;
+    public bool movementManager = true;
 
     public int hp = 100;
     public int maxhp = 100;
@@ -102,9 +103,6 @@ public class PlayerMovement : MonoBehaviour
         stats.SetMaxStaminaUI(staminaCap);
         stats.SetMaxSoundUI(soundCap);
         stats.SetMaxHpUI(maxhp);
-
-
-
     }
 
     void Update()
@@ -132,47 +130,54 @@ public class PlayerMovement : MonoBehaviour
         bool moving = (x != 0 || z != 0); // Check if player is moving
 
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
 
-        if(moving && !isRunning)
+        if(movementManager == true)
         {
+            controller.Move(move * speed * Time.deltaTime);
 
-            timerSound3 = timerSound3 + Time.deltaTime;
-            if(timerSound3 >= endSound3)
+            if (moving && !isRunning)
             {
-                sound = sound + 1;
-                timerSound3 = 0;
+
+                timerSound3 = timerSound3 + Time.deltaTime;
+                if (timerSound3 >= endSound3)
+                {
+                    sound = sound + 1;
+                    timerSound3 = 0;
+                }
             }
-        }
 
-        // Fixed head bobbing to work with both walking and sprinting
-        if (move.magnitude > 0.1f && isGrounded && !isCrouching)
-        {
-            // Use the appropriate bob speed based on running state
-            float currentBobSpeed = isRunning ? bobSprintSpeed : bobSpeed;
+            // Fixed head bobbing to work with both walking and sprinting
+            if (move.magnitude > 0.1f && isGrounded && !isCrouching)
+            {
+                // Use the appropriate bob speed based on running state
+                float currentBobSpeed = isRunning ? bobSprintSpeed : bobSpeed;
 
-            // Increment timer using the current bob speed
-            timer += Time.deltaTime * currentBobSpeed;
+                // Increment timer using the current bob speed
+                timer += Time.deltaTime * currentBobSpeed;
 
-            float bobOffset = Mathf.Sin(timer) * bobAmount;
-            cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, targetCamHeight + bobOffset, cam.transform.localPosition.z);
-        }
-        else
-        {
-            // Smoothly reset camera position when stopping movement
-            cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, Mathf.Lerp(cam.transform.localPosition.y, targetCamHeight, Time.deltaTime * 5f), cam.transform.localPosition.z);
+                float bobOffset = Mathf.Sin(timer) * bobAmount;
+                cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, targetCamHeight + bobOffset, cam.transform.localPosition.z);
+            }
+            else
+            {
+                // Smoothly reset camera position when stopping movement
+                cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, Mathf.Lerp(cam.transform.localPosition.y, targetCamHeight, Time.deltaTime * 5f), cam.transform.localPosition.z);
+            }
         }
     }
 
     void HandleLook()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        if(movementManager == true)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        transform.Rotate(Vector3.up * mouseX);
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * mouseX);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        }
     }
 
     void HandleSprint()
@@ -307,41 +312,47 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleCrouch()
     {
-        if (Input.GetKey(KeyCode.LeftAlt)) // Si on maintient Alt
+        if(movementManager == true)
         {
-            isCrouching = true;
-            controller.height = crouchingHeight;
-            speed = crouchSpeed;
-        }
-        else // Quand on relâche Alt
-        {
-            soundController = false;
-            endSound = 0.5f;
-            targetCamHeight = defaultCamHeight; // Reset base camera height
-            isCrouching = false;
-            controller.height = standingHeight;
-
-            // Vérifier si on sprint après s'être accroupi
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftAlt)) // Si on maintient Alt
             {
-                speed = sprintSpeed;
+                isCrouching = true;
+                controller.height = crouchingHeight;
+                speed = crouchSpeed;
             }
-            else
+            else // Quand on relâche Alt
             {
-                speed = walkSpeed;
+                soundController = false;
+                endSound = 0.5f;
+                targetCamHeight = defaultCamHeight; // Reset base camera height
+                isCrouching = false;
+                controller.height = standingHeight;
+
+                // Vérifier si on sprint après s'être accroupi
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    speed = sprintSpeed;
+                }
+                else
+                {
+                    speed = walkSpeed;
+                }
             }
         }
     }
 
     void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if(movementManager == true)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Formule du saut réaliste
-            sound = sound + 35;
-            if(sound > 100)
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
-                sound = 100;
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Formule du saut réaliste
+                sound = sound + 35;
+                if (sound > 100)
+                {
+                    sound = 100;
+                }
             }
         }
     }
