@@ -8,6 +8,9 @@ public class PickupItem : MonoBehaviour
     public GameObject model3D; // 🔹 Modèle 3D à stocker
     public GameObject interactUI; // UI "E pour prendre"
 
+    public static event System.Action OnItemPickedUp;
+
+
     private bool isPlayerNear = false;
 
     private void Start()
@@ -41,6 +44,8 @@ public class PickupItem : MonoBehaviour
             {
                 interactUI.SetActive(false); // Cacher l'UI après prise
                 gameObject.SetActive(false); // Désactiver l'objet
+
+                OnItemPickedUp?.Invoke(); // 🔥 Déclencher l'événement quand l'objet est pris
             }
         }
     }

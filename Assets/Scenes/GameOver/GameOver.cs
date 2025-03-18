@@ -7,16 +7,16 @@ public class GameOver : MonoBehaviour
 {
 
 
-    public GameObject Boutton_Reesayer; // Assigne ton bouton dans l'Inspector
+    public GameObject Boutton_Reesayer; 
 
-    public void HideButton()
+    public void HideButton()  
     {
-        Boutton_Reesayer.SetActive(false); // Cache le bouton
+        Boutton_Reesayer.SetActive(false); 
     }
 
     public void ShowButton()
     {
-        Boutton_Reesayer.SetActive(true); // Montre le bouton
+        Boutton_Reesayer.SetActive(true); 
     }
 
     public void Reesayer()
@@ -27,16 +27,16 @@ public class GameOver : MonoBehaviour
 
     public void RetourMenu()
     {
-        GameObject gameManager = GameObject.Find("GameManager"); // Trouve l'objet
+        GameObject gameManager = GameObject.Find("GameManager");
         if (gameManager != null)
         {
-            Destroy(gameManager); // Le détruit
+            Destroy(gameManager); 
         }
 
-        SceneManager.LoadScene("Menu"); // Charge le menu
+        SceneManager.LoadScene("Menu");
     }
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         switch (DifficultyManager.CurrentDifficulty)
@@ -52,11 +52,5 @@ public class GameOver : MonoBehaviour
                 break;
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

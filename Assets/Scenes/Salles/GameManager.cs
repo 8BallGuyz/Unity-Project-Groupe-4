@@ -33,7 +33,7 @@ public class RoomManager : MonoBehaviour
         }
         else
         {
-            LoadExistingRoomSequence(); // Récupère la séquence déjà définie
+            LoadExistingRoomSequence(); 
         }
 
         Debug.Log("Tu es dans la salle : " + GetCurrentRoom());
@@ -61,7 +61,7 @@ public class RoomManager : MonoBehaviour
         roomsSequence.Clear();
         roomsSequence.Add("Salle_Début"); // Salle 1 (fixe)
 
-        List<string> availableRooms = new List<string>(allRooms); // Copie des salles disponibles
+        List<string> availableRooms = new List<string>(allRooms); 
 
         for (int i = 1; i < 10; i++)
         {
@@ -80,7 +80,7 @@ public class RoomManager : MonoBehaviour
             }
         }
 
-        roomsSequence.Add("Salle_Fin"); // On ajoute la salle finale
+        roomsSequence.Add("Salle_Fin"); 
 
         Debug.Log("Séquence des salles : " + string.Join(", ", roomsSequence));
 
@@ -111,7 +111,7 @@ public class RoomManager : MonoBehaviour
 
         int index = Random.Range(0, availableRooms.Count);
         string chosenRoom = availableRooms[index];
-        availableRooms.RemoveAt(index); // On enlève la salle pour éviter qu'elle ne réapparaisse
+        availableRooms.RemoveAt(index);
 
         return chosenRoom;
     }
@@ -124,12 +124,12 @@ public class RoomManager : MonoBehaviour
         if (currentRoomIndex < roomsSequence.Count - 1)
         {
             currentRoomIndex++;
-            currentRoomName = roomsSequence[currentRoomIndex]; // Salle actuelle
+            currentRoomName = roomsSequence[currentRoomIndex]; 
 
             if (currentRoomIndex < roomsSequence.Count - 1)
-                nextRoomName = roomsSequence[currentRoomIndex + 1]; // Salle suivante
+                nextRoomName = roomsSequence[currentRoomIndex + 1]; 
             else
-                nextRoomName = "Salle_Fin"; // Dernière salle atteinte
+                nextRoomName = "Salle_Fin"; 
 
             SceneManager.LoadScene(currentRoomName);
         }
@@ -150,7 +150,11 @@ public class RoomManager : MonoBehaviour
         if (currentRoomIndex < roomsSequence.Count - 1)
             return roomsSequence[currentRoomIndex + 1];
         else
-            return "Salle_Fin"; // On force à retourner la salle finale
+            return "Salle_Fin"; 
+    }
+
+    public static string GetSalle(int num){
+        return "Salle_" + num.ToString();
     }
 
 }
