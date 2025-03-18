@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class PickupItem : MonoBehaviour
 {
     public Sprite icon;
+
+    public GameObject model3D; // 🔹 Modèle 3D à stocker
     public GameObject interactUI; // UI "E pour prendre"
 
     private bool isPlayerNear = false;
@@ -35,7 +37,7 @@ public class PickupItem : MonoBehaviour
     {
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
         {
-            if (InventorySystem.instance.AddItem(gameObject, icon))
+            if (InventorySystem.instance.AddItem(gameObject, icon, model3D))
             {
                 interactUI.SetActive(false); // Cacher l'UI après prise
                 gameObject.SetActive(false); // Désactiver l'objet

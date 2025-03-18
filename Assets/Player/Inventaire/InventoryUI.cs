@@ -22,7 +22,6 @@ public class InventoryUI : MonoBehaviour
         }
 
         inventoryPanel.SetActive(false); // L'inventaire est fermé au début
-        
     }
 
     void Update()
@@ -34,7 +33,6 @@ public class InventoryUI : MonoBehaviour
             Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = isOpen;
 
-            
             if (playerMovement != null)
             {
                 playerMovement.SetInventoryState(isOpen); // 🔹 Désactive les contrôles du joueur
@@ -42,6 +40,29 @@ public class InventoryUI : MonoBehaviour
 
             if (isOpen) RefreshUI();
         }
+
+
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) // Vérifie les touches 1 à 9
+            {
+                EquipItem(i);
+            }
+        }
+    }
+
+    // 🔹 Fonction pour équiper un objet
+    void EquipItem(int index)
+    {
+        if (index >= InventorySystem.instance.items.Count)
+        {
+            Debug.Log("❌ Aucun objet à cet emplacement !");
+            return;
+        }
+
+        GameObject selectedItemModel = InventorySystem.instance.itemModels[index]; // 🔹 Récupère le modèle 3D
+        FindObjectOfType<PlayerEquipment>()?.EquipItem(selectedItemModel); // 🔹 Affiche l’objet équipé
     }
 
     public void RefreshUI()
@@ -55,7 +76,7 @@ public class InventoryUI : MonoBehaviour
 
         for (int i = 0; i < slots.Count; i++)
         {
-            // Récupère l'image du slot (assure-toi que `slotPrefab` contient une `Image` !)
+            // Récupère l'image du slot
             Image img = slots[i].transform.Find("ItemIcon").GetComponent<Image>();
 
             if (img == null)
