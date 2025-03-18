@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class MerchantUI : MonoBehaviour
@@ -9,6 +10,9 @@ public class MerchantUI : MonoBehaviour
     public GameObject itemButtonPrefab; // 🔹 Bouton modèle pour afficher un objet
     public Transform itemListContainer; // 🔹 Conteneur où afficher les objets
     public int maxSlots = 9; // 🔹 Nombre total de slots dans l'inventaire du marchand
+    public Transform spawnPoint; // 🔥 Le point où spawner l'objet acheté (dans la main du vendeur)
+    public Animator Trader; // 🔥 Référence à l'Animator du joueur
+
 
     void Start()
     {
@@ -75,6 +79,23 @@ public class MerchantUI : MonoBehaviour
             button.GetComponentInChildren<Text>().text = "";
             button.GetComponentInChildren<Image>().enabled = false;
             button.GetComponent<Button>().interactable = false;
+
+            // 📌 📌 📌 Spawn du modèle 3D 📌 📌 📌
+            if (item.itemPrefab != null)
+            {
+                GameObject spawnedObject = Instantiate(item.itemPrefab, spawnPoint.position, spawnPoint.rotation);
+                spawnedObject.transform.SetParent(spawnPoint); // 📎 L'objet reste dans la main du vendeur
+                Debug.Log($"🛠️ {item.itemName} a été placé dans la main du marchand !");
+            }
+            else
+            {
+                Debug.LogWarning($"⚠️ Pas de modèle 3D assigné à {item.itemName} !");
+            }
+
+            // 🎬 Active l'animation "acheter"
+            Trader.SetBool("acheter", true);
+            Debug.Log("🎥 Animation d'achat déclenchée !");
+            StartCoroutine(ResetBuyAnimation()); // ⏳ Remet l'animation à false après un moment
         } 
         else 
         {
@@ -82,4 +103,26 @@ public class MerchantUI : MonoBehaviour
             Debug.Log($"⛔ Pas assez de crédits pour acheter {item.itemName} !");
         }
     }
+
+
+    IEnumerator ResetBuyAnimation()
+    {
+        Debug.Log("🎥 Attente de la récupération de l'objet...");
+        
+        bool itemPickedUp = false;
+
+        // ⏳ Attendre que l'événement soit déclenché
+        System.Action onItemPickedUp = () => itemPickedUp = true;
+        PickupItem.OnItemPickedUp += onItemPickedUp;
+
+        yield return new WaitUntil(() => itemPickedUp); // 🔥 Bloque ici jusqu'à ce que l'objet soit récupéré
+
+        PickupItem.OnItemPickedUp -= onItemPickedUp; // ❌ Désabonnement (évite les erreurs)
+
+        // ✅ Réinitialiser l'animation
+        Trader.SetBool("acheter", false);
+        Debug.Log("🎥 Animation d'achat réinitialisée.");
+    }
+
+
 }
