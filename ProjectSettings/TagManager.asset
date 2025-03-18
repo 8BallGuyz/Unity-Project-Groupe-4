@@ -9,6 +9,7 @@ TagManager:
   - LabZone
   - SpawnPoint
   - Lever
+  - Merchant
   layers:
   - Default
   - TransparentFX
