@@ -3630,7 +3630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.3345, y: -183.50041}
+  m_AnchoredPosition: {x: 8.3345, y: -117.91455}
   m_SizeDelta: {x: 421.4776, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406613091
@@ -3650,6 +3650,8 @@ MonoBehaviour:
   scrollView: {fileID: 874991722}
   startY: 0
   endY: 100
+  autoScroll: 1
+  manualScrollSpeed: 10
 --- !u!114 &1406613092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,7 +3682,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 88
-    m_Bottom: 318
+    m_Bottom: 190
   m_ChildAlignment: 4
   m_Spacing: 15.2
   m_ChildForceExpandWidth: 1
