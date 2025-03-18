@@ -14,7 +14,7 @@ public class MerchantInteraction : MonoBehaviour
 
     void Update()
     {
-        if (isNearMerchant && Input.GetKeyDown(KeyCode.E))
+        if (isNearMerchant && Input.GetKeyDown(KeyCode.T))
         {
             ToggleMerchantUI();
         }
