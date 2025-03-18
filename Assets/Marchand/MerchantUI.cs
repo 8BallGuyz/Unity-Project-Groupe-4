@@ -107,22 +107,10 @@ public class MerchantUI : MonoBehaviour
 
     IEnumerator ResetBuyAnimation()
     {
-        Debug.Log("🎥 Attente de la récupération de l'objet...");
-        
-        bool itemPickedUp = false;
-
-        // ⏳ Attendre que l'événement soit déclenché
-        System.Action onItemPickedUp = () => itemPickedUp = true;
-        PickupItem.OnItemPickedUp += onItemPickedUp;
-
-        yield return new WaitUntil(() => itemPickedUp); // 🔥 Bloque ici jusqu'à ce que l'objet soit récupéré
-
-        PickupItem.OnItemPickedUp -= onItemPickedUp; // ❌ Désabonnement (évite les erreurs)
-
-        // ✅ Réinitialiser l'animation
+        Debug.Log("🎥 Animation d'achat réinitialisée. -----");
+        Trader.SetBool("recupere", false);
+        yield return new WaitForSeconds(1f); // ⏳ Attendre 1 seconde (ajuste selon l'animation)
         Trader.SetBool("acheter", false);
         Debug.Log("🎥 Animation d'achat réinitialisée.");
     }
-
-
 }

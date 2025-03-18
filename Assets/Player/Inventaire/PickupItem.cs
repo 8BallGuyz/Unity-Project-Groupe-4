@@ -10,12 +10,24 @@ public class PickupItem : MonoBehaviour
 
     public static event System.Action OnItemPickedUp;
 
+    private Animator traderAnimator;
 
     private bool isPlayerNear = false;
 
     private void Start()
     {
         interactUI.SetActive(false); // Cache l'UI au départ
+
+        MerchantUI merchantUI = FindObjectOfType<MerchantUI>(); // Récupérer MerchantUI
+        if (merchantUI != null)
+        {
+            traderAnimator = merchantUI.Trader; // Récupérer l'Animator du marchand
+            Debug.Log("✅ Animator récupéré depuis MerchantUI !");
+        }
+        else
+        {
+            Debug.LogError("❌ MerchantUI introuvable dans la scène !");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,9 +56,10 @@ public class PickupItem : MonoBehaviour
             {
                 interactUI.SetActive(false); // Cacher l'UI après prise
                 gameObject.SetActive(false); // Désactiver l'objet
-
-                OnItemPickedUp?.Invoke(); // 🔥 Déclencher l'événement quand l'objet est pris
             }
+
+            traderAnimator.SetBool("recupere", false);
+
         }
     }
 }
