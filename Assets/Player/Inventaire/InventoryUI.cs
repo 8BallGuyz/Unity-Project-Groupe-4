@@ -7,6 +7,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryPanel;
     public Transform slotParent;
     public GameObject slotPrefab;
+    public PlayerMovement playerMovement; // 🔹 Référence au PlayerMovement
 
     private List<GameObject> slots = new List<GameObject>();
     private bool isOpen = false;
@@ -21,6 +22,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         inventoryPanel.SetActive(false); // L'inventaire est fermé au début
+        
     }
 
     void Update()
@@ -29,6 +31,15 @@ public class InventoryUI : MonoBehaviour
         {
             isOpen = !isOpen;
             inventoryPanel.SetActive(isOpen);
+            Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = isOpen;
+
+            
+            if (playerMovement != null)
+            {
+                playerMovement.SetInventoryState(isOpen); // 🔹 Désactive les contrôles du joueur
+            }
+
             if (isOpen) RefreshUI();
         }
     }
