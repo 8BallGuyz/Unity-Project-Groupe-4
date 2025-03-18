@@ -73,6 +73,14 @@ public class PlayerMovement : MonoBehaviour
     private string lastSceneName;
 
 
+
+    private bool isInventoryOpen = false;
+
+    public void SetInventoryState(bool state)
+    {
+        isInventoryOpen = state;
+    }
+
     void Start()
     {
 
@@ -101,11 +109,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
-        HandleLook();
-        HandleSprint();
-        HandleCrouch();
-        HandleJump();
+        if (!isInventoryOpen)
+        {
+            HandleMovement();
+            HandleLook();
+            HandleSprint();
+            HandleCrouch();
+            HandleJump();
+        }
         ApplyGravity();
     }
 
