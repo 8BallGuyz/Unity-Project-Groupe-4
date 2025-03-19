@@ -18,6 +18,7 @@ public class InfiniteDesert : MonoBehaviour
     public GameObject structureI;
     public GameObject structureFinal;
     public GameObject structureX;
+    GameObject currentStructureFinal; // Stocke la référence de la structure actuelle
 
     private List<GameObject> spawnedStructures = new List<GameObject>(); // Liste des structures générées
     private float structureDespawnDistance = 150f; // Distance seuil pour supprimer les structures
@@ -170,15 +171,23 @@ public class InfiniteDesert : MonoBehaviour
             }
         }
 
-        if (tileCount % 10 == 0) // 📌 Une plaque sur 100
+        if (tileCount % 20 == 0) // 📌 Une plaque sur 100
         {
             int roll = Random.Range(1, 101);
-            if (roll >= 90) // 🎯 10 % de chance pour Structure_Final
+            if (roll <= 10) // Maintenant, seulement 5% de chance par case éligible
             {
-                Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-                GameObject newStructure = Instantiate(structureFinal, position + Vector3.up, randomRotation);
-                Debug.Log("🔥 Structure_Final générée !");
-                spawnedStructures.Add(newStructure);
+                if (currentStructureFinal == null) // ✅ Vérifie qu'il n'y en a pas déjà une
+                {
+                    Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+                    GameObject newStructure = Instantiate(structureFinal, position + Vector3.up, randomRotation);
+                    currentStructureFinal = newStructure;
+                    Debug.Log("🔥 Structure_Final générée !");
+                    spawnedStructures.Add(newStructure);
+                }
+                else
+                {
+                    Debug.Log("❌ Une Structure_Final est déjà présente, pas de spawn.");
+                }
 
             }
         }
