@@ -4,43 +4,54 @@ using UnityEngine;
 
 public class TP : MonoBehaviour
 {
-    private Vector3 savedPosition;
-    private bool hasClicked = false;
-    private Rigidbody rb;
+    PlayerMovement playerController;
+    CharacterController characterController;
+    Rigidbody rb;
+
+    private Vector3 savedPosition; 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); // Récupère le Rigidbody s'il y en a un
+        playerController = gameObject.GetComponent<PlayerMovement>();
+        characterController = gameObject.GetComponent<CharacterController>();
+        rb = gameObject.GetComponent<Rigidbody>();
+
+
+        AnimationSwitcher.OnTurningStarted += StartTeleportSequence;
     }
 
-    void Update()
+    void OnDestroy()
     {
-        if (Input.GetMouseButtonDown(0) && !hasClicked) // Clic gauche (une seule fois)
-        {
-            savedPosition = transform.position; // Sauvegarde la position actuelle
-            hasClicked = true; // Empêche plusieurs clics
-            Debug.Log("✅ Position enregistrée : " + savedPosition);
 
-            StartCoroutine(TeleportAfterDelay(10f)); // Lance la téléportation après 10s
-        }
+        AnimationSwitcher.OnTurningStarted -= StartTeleportSequence;
     }
 
-    IEnumerator TeleportAfterDelay(float delay)
+    void StartTeleportSequence()
     {
-        yield return new WaitForSeconds(delay);
+        Debug.Log("Animation détectée ! Position sauvegardée.");
+        savedPosition = transform.position;
+        StartCoroutine(DelayedTeleport());
+    }
 
-        if (rb != null) 
-        {
-            rb.velocity = Vector3.zero; // Arrête le mouvement du joueur
-            rb.position = savedPosition; // Téléporte via Rigidbody
-            Debug.Log("🚀 Téléportation via Rigidbody à : " + savedPosition);
-        }
-        else
-        {
-            transform.position = savedPosition; // Téléporte normalement
-            Debug.Log("🚀 Téléportation via Transform à : " + savedPosition);
-        }
+    IEnumerator DelayedTeleport()
+    {
+        Debug.Log("Téléportation dans 10 secondes...");
+        yield return new WaitForSeconds(10f);
 
-        hasClicked = false; // Réactive le clic après la téléportation
+        Debug.Log("Téléportation vers la position sauvegardée : " + savedPosition);
+
+        if (characterController != null) characterController.enabled = false;
+        if (rb != null) rb.isKinematic = true;
+
+        playerController.disable = true;
+        transform.position = savedPosition;
+        yield return new WaitForSeconds(1f);
+        playerController.disable = false;
+
+        if (characterController != null) characterController.enabled = true;
+        if (rb != null) rb.isKinematic = false;
+
+        Debug.Log("Fin de la téléportation.");
     }
 }
+

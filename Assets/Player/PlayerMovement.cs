@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
     public stats_manager stats;
     public bool movementManager = true;
 
+    public bool disable;
+
+
     public int hp = 100;
     public int maxhp = 100;
     public float walkSpeed = 5f;
