@@ -55,15 +55,26 @@ public class InventoryUI : MonoBehaviour
     // 🔹 Fonction pour équiper un objet
     void EquipItem(int index)
     {
-        if (index >= InventorySystem.instance.items.Count)
+        PlayerEquipment playerEquipment = FindObjectOfType<PlayerEquipment>();
+
+        if (index >= InventorySystem.instance.items.Count) // Vérifie si la case est vide
         {
             Debug.Log("❌ Aucun objet à cet emplacement !");
+            
+            if (playerEquipment != null && playerEquipment.HasEquippedItem()) 
+            {
+                Debug.Log("🔄 Déséquipement de l'objet actuel.");
+                playerEquipment.UnequipItem(); // Déséquipe l'objet actuel
+            }
+
             return;
         }
 
-        GameObject selectedItemModel = InventorySystem.instance.itemModels[index]; // 🔹 Récupère le modèle 3D
-        FindObjectOfType<PlayerEquipment>()?.EquipItem(selectedItemModel); // 🔹 Affiche l’objet équipé
-    }
+    // Équipe le nouvel objet
+    GameObject selectedItemModel = InventorySystem.instance.itemModels[index];
+    playerEquipment?.EquipItem(selectedItemModel);
+}
+
 
     public void RefreshUI()
     {

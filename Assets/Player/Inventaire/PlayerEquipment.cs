@@ -21,4 +21,20 @@ public class PlayerEquipment : MonoBehaviour
         currentEquippedItem.SetActive(true); // 🔹 Active l'objet s'il était désactivé
         Debug.Log($"🎮 Équipé : {itemModel.name}");
     }
+
+    public bool HasEquippedItem()
+    {
+        return currentEquippedItem != null; // Vérifie si un objet est équipé
+    }
+
+    public void UnequipItem()
+    {
+        if (currentEquippedItem != null)
+        {
+            Destroy(currentEquippedItem); // Supprime l'objet actuellement équipé
+            currentEquippedItem = null;
+            Debug.Log("🛑 Objet déséquipé !");
+        }
+    }
+
 }
