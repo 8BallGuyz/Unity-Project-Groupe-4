@@ -382,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRoomName: 
   nextRoomName: 
+  credits: 0
 --- !u!4 &57919280
 Transform:
   m_ObjectHideFlags: 0
