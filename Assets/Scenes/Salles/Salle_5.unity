@@ -1155,10 +1155,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -1255,6 +1269,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+--- !u!1 &277892761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 44105294305608102, guid: 75dc0456762d4e8428b8ad4fc094ce26,
+    type: 3}
+  m_PrefabInstance: {fileID: 1414058654}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &280373635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,10 +1756,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -2025,10 +2059,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -2885,10 +2933,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -2993,10 +3055,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -3359,10 +3435,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -3578,10 +3668,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -4025,10 +4129,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -4133,10 +4251,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -4320,10 +4452,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -4428,10 +4574,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -4711,7 +4871,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 44105294305608102, guid: 75dc0456762d4e8428b8ad4fc094ce26,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1414058661}
   m_SourcePrefab: {fileID: 100100000, guid: 75dc0456762d4e8428b8ad4fc094ce26, type: 3}
 --- !u!4 &1414058655 stripped
 Transform:
@@ -4725,10 +4889,22 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1414058654}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 277892761}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6564dfe0d1f1f04d97635f90b937e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1414058661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277892761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b331c3eeb9f30844395183bf5f750c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1421406148
@@ -4949,10 +5125,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -5057,10 +5247,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -5818,10 +6022,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -6034,10 +6252,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -6185,10 +6417,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -6340,10 +6586,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -6527,10 +6787,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -7259,10 +7533,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
@@ -7547,10 +7835,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441367415}
     m_Modifications:
+    - target: {fileID: 4109619227343171, guid: 6d77bf84b955646819346d30ac4c3094, type: 3}
+      propertyPath: m_TagString
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 406240333007392733, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}
       propertyPath: m_Name
       value: Poison detector
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384351128265695550, guid: 6d77bf84b955646819346d30ac4c3094,
+        type: 3}
+      propertyPath: m_TagString
+      value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 4658998514328837030, guid: 6d77bf84b955646819346d30ac4c3094,
         type: 3}

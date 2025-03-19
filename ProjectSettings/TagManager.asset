@@ -15,6 +15,7 @@ TagManager:
   - Bottom
   - Right
   - Left
+  - Poison
   layers:
   - Default
   - TransparentFX
