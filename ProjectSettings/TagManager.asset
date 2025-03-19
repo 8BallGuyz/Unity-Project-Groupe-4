@@ -10,6 +10,11 @@ TagManager:
   - SpawnPoint
   - Lever
   - Merchant
+  - Center
+  - Top
+  - Bottom
+  - Right
+  - Left
   layers:
   - Default
   - TransparentFX
