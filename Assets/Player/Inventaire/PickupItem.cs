@@ -59,7 +59,7 @@ public class PickupItem : MonoBehaviour
             }
 
             traderAnimator.SetBool("recupere", false);
-
+            traderAnimator.SetBool("acheter", false);
         }
     }
 }
