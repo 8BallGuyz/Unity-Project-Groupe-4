@@ -3,12 +3,7 @@ guid: f1e342bb4c424b4478953ed1cdcb7ddc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Lighter_texture
-    second: {fileID: 2100000, guid: be6a8947bbf036c49b8973aa45c98267, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
