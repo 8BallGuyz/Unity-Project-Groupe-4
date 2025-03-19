@@ -7,6 +7,12 @@ public class Win : MonoBehaviour
 {
     public GameObject Bouton_Replay;
 
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+ 
     public void Replay(){
         SceneManager.LoadScene(RoomManager.GetSalle(1));
     }
