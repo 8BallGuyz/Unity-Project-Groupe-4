@@ -15,14 +15,61 @@ public class RoomManager : MonoBehaviour
     private int currentRoomIndex = 0;
     private List<string> roomsSequence = new List<string>();
 
-    
 
+    private float startTime; // Temps de début de la scène
+    private int baseReward = 50; // Récompense de base
+
+
+
+    public static RoomManager instance;
+    public int credits = 0; // 🔹 L'argent global du joueur
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // Évite les doublons
+        }
+    }
+    
+    public void AddCredits(int amount)
+    {
+        credits += amount;
+        Debug.Log("💰 Crédits ajoutés : " + amount + " | Total : " + credits);
+        UIManager.instance?.UpdateCreditsText(); // Mettre à jour l'UI
+    }
+
+    public void RemoveCredits(int amount)
+    {
+        if (credits >= amount)
+        {
+            credits -= amount;
+            Debug.Log("💸 Crédits dépensés : " + amount + " | Restant : " + credits);
+            UIManager.instance?.UpdateCreditsText(); // Mettre à jour l'UI
+        }
+        else
+        {
+            Debug.Log("❌ Pas assez de crédits !");
+        }
+    }
+
+    public int GetCredits()
+    {
+        return credits;
+    }
 
 
     void Start()
     {
 
         DontDestroyOnLoad(this);
+
+        startTime = Time.timeSinceLevelLoad; // On enregistre le temps de départ
 
         // DifficultyManager.LoadDifficulty();
         // Debug.Log("Difficulté actuelle : " + DifficultyManager.CurrentDifficulty);
@@ -116,8 +163,33 @@ public class RoomManager : MonoBehaviour
         return chosenRoom;
     }
 
+    private int CalculateReward(float timeTaken)
+    {   
+        if (currentRoomName == "Salle_Achat" || currentRoomName == "Salle_Début" || currentRoomName == "Salle_Fin")
+        {
+            return 0; // Très lent : petite récompense
+        }
+        else
+        {
+            if (timeTaken <= 10) return baseReward * 2; // Très rapide : x2
+            if (timeTaken <= 30) return baseReward; // Normal : baseReward
+            if (timeTaken <= 60) return baseReward / 2; // Lent : moitié
+            if (timeTaken <= 120) return baseReward / 4; // Lent : moitié
+            return baseReward / 5; // Très lent : petite récompense
+        }
+    }
+
+
     public void LoadNextRoom()
     {
+
+        float timeTaken = Time.timeSinceLevelLoad; // Temps passé dans la scène
+        int reward = CalculateReward(timeTaken); // Calcul de la récompense
+
+        AddCredits(reward); // Ajoute les crédits gagnés
+        Debug.Log("🏆 Récompense pour " + currentRoomName + " : " + reward + " crédits");
+
+
         Debug.Log("Tu es dans la salle : " + GetCurrentRoom());
         Debug.Log("La prochaine salle est : " + GetNextRoom());
 
