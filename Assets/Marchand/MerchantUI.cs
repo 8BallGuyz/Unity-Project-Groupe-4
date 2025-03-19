@@ -12,12 +12,28 @@ public class MerchantUI : MonoBehaviour
     public int maxSlots = 9; // 🔹 Nombre total de slots dans l'inventaire du marchand
     public Transform spawnPoint; // 🔥 Le point où spawner l'objet acheté (dans la main du vendeur)
     public Animator Trader; // 🔥 Référence à l'Animator du joueur
+    public Text creditsText; // 🔹 Référence au texte du HUD
+
 
 
     void Start()
     {
         PopulateMerchantUI();
+        UpdateCreditsUI(); // 🔥 Mettre à jour les crédits dès le départ
     }
+
+    void UpdateCreditsUI()
+    {
+        if (creditsText != null)
+        {
+            creditsText.text = $"{playerCredits}"; // 🔥 Met à jour l'affichage
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Aucun Text UI assigné pour les crédits !");
+        }
+    }
+
 
     void PopulateMerchantUI()
     {
@@ -73,6 +89,7 @@ public class MerchantUI : MonoBehaviour
         {
             // ✅ Achat validé
             playerCredits -= item.price;
+            UpdateCreditsUI(); // 🔥 Met à jour l'affichage après un achat
             Debug.Log($"💰 Achat de {item.itemName} pour {item.price} crédits ! Crédits restants : {playerCredits}");
 
             // ❌ Désactiver l'item au lieu de le détruire
