@@ -4,6 +4,8 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class ArcDeCercleLune : MonoBehaviour
 {
+
+    public static bool luneTombee = false; 
     public Transform player; // Le joueur
     public Transform lune;   // La lune
     public AudioSource audioSource; // Son
@@ -61,6 +63,9 @@ public class ArcDeCercleLune : MonoBehaviour
             audioSource.PlayOneShot(spookySound);
         }
         StartCoroutine(ApplyDistortionEffect());
+
+        // Active le monstre après la chute de la lune
+        luneTombee = true;
     }
 
     private IEnumerator ApplyDistortionEffect()
