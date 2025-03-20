@@ -22,7 +22,7 @@ public class PlayerEquipment : MonoBehaviour
         // 🔹 Instancie le nouvel objet et l'attache à la main du joueur
         currentEquippedItem = Instantiate(itemModel, handTransform);
         currentEquippedItem.transform.localPosition = Vector3.zero; // 🔹 Le place correctement
-        currentEquippedItem.transform.localRotation = Quaternion.identity;
+        // currentEquippedItem.transform.localRotation = Quaternion.identity;
         currentEquippedItem.SetActive(true);
 
         Debug.Log($"🎮 Équipé : {currentEquippedItem.name}");
