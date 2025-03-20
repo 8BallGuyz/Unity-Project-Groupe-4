@@ -23,6 +23,13 @@ public class ArcDeCercleLune : MonoBehaviour
     private LensDistortion lensDistortion;
     private ChromaticAberration chromaticAberration;
 
+
+    public Light soleil; // Référence à la lumière Directional (le soleil)
+    public float maxIntensity = 7f; // Intensité maximale du soleil
+    public float minIntensity = 0f; // Intensité minimale du soleil
+    private float zenithThreshold = 0.5f; // Seuil pour estimer que la lune est au zénith
+    public Light luneLight; // Directional Light de la lune
+
     void Start()
     {
         // Récupère les effets de post-processing
@@ -43,6 +50,22 @@ public class ArcDeCercleLune : MonoBehaviour
             float x = Mathf.Cos(angle) * rayon; 
             float y = Mathf.Sin(angle) * hauteur; 
             lune.position = player.position + new Vector3(x, y, 0);
+
+            AjusterIntensiteSoleil(y);
+
+            // Désactiver la lumière de la lune quand elle a terminé sa trajectoire
+            if (angle >= Mathf.PI) // Condition : Quand la lune est au plus bas
+            {
+                if (luneLight != null)
+                    luneLight.enabled = false;
+            }
+            else
+            {
+                if (luneLight != null)
+                    luneLight.enabled = true;
+            }
+
+
             Vector3 direction = (player.position - lune.position).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             lune.rotation = Quaternion.Slerp(lune.rotation, targetRotation, Time.deltaTime * 5f);
@@ -54,6 +77,26 @@ public class ArcDeCercleLune : MonoBehaviour
             }
         }
     }
+
+    void AjusterIntensiteSoleil(float hauteurLune)
+    {
+        if (soleil == null) return;
+
+        // Normalise la hauteur de la lune entre 0 (plus bas) et 1 (plus haut)
+        float hauteurNormale = Mathf.InverseLerp(-hauteur, hauteur, hauteurLune);
+
+        // Inverse la logique : Soleil intense quand la lune est basse, faible quand elle est haute
+        if (hauteurNormale < zenithThreshold) // Avant le zénith
+        {
+            soleil.intensity = Mathf.Lerp(minIntensity, maxIntensity, hauteurNormale / zenithThreshold);
+        }
+        else // Après le zénith
+        {
+            float hauteurDescente = Mathf.InverseLerp(zenithThreshold, 1f, hauteurNormale);
+            soleil.intensity = Mathf.Lerp(maxIntensity, minIntensity, hauteurDescente);
+        }
+    }
+
 
     void TriggerDistortionEffect()
     {

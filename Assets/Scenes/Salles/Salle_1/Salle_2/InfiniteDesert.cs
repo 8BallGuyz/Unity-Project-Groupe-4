@@ -71,7 +71,7 @@ public class InfiniteDesert : MonoBehaviour
 
     void SpawnTile(Vector3 position)
     {
-        GameObject newTile = Instantiate(desertPrefab, position, Quaternion.identity);
+        GameObject newTile = Instantiate(desertPrefab, position, Quaternion.identity); // 🏜️ Clone du prefab fixe
         newTile.name = "sol";
         Vector2 tileCheckPos = new Vector2(position.x, position.z);
         spawnedTiles.Add(tileCheckPos);
@@ -91,6 +91,7 @@ public class InfiniteDesert : MonoBehaviour
 
 
 
+
     void TrySpawnStructure(Vector3 position)
     {
         if (tileCount % 15 == 0) // 📌 Une plaque sur 20
@@ -101,6 +102,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureA, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_A générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -109,6 +111,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureB, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_B générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -117,6 +120,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureC, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_C générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -125,6 +129,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureD, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_D générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -133,6 +138,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureE, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_E générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -141,6 +147,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureF, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_F générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -149,6 +156,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureG, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_G générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -157,6 +165,7 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureH, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_H générée !");
                 spawnedStructures.Add(newStructure);
 
@@ -165,13 +174,14 @@ public class InfiniteDesert : MonoBehaviour
             {
                 Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 GameObject newStructure = Instantiate(structureI, position + Vector3.up, randomRotation);
+                newStructure.transform.SetParent(transform);
                 // Debug.Log("🏗️ Structure_I générée !");
                 spawnedStructures.Add(newStructure);
 
             }
         }
 
-        if (tileCount % 20 == 0) // 📌 Une plaque sur 100
+        if (tileCount % 30 == 0) // 📌 Une plaque sur 100
         {
             int roll = Random.Range(1, 101);
             if (roll <= 5) // Maintenant, seulement 5% de chance par case éligible
@@ -181,6 +191,7 @@ public class InfiniteDesert : MonoBehaviour
                     Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
                     GameObject newStructure = Instantiate(structureFinal, position + Vector3.up, randomRotation);
                     currentStructureFinal = newStructure;
+                    newStructure.transform.SetParent(transform);
                     // Debug.Log("🔥 Structure_Final générée !");
                     spawnedStructures.Add(newStructure);
                 }
@@ -230,15 +241,33 @@ public class InfiniteDesert : MonoBehaviour
 
         float dist = Vector2.Distance(myPos, playerPos);
 
-        // Debug.Log($"🔍 Vérification destruction : Plaque {name} | Distance : {dist} | Seuil : {tileSize * 1.5f}");
+        if (dist > tileSize * 1.5f) // 📏 Si la plaque est trop loin du joueur
+        {
+            // 🔥 Suppression des structures associées à cette plaque
+            for (int i = spawnedStructures.Count - 1; i >= 0; i--)
+            {
+                if (spawnedStructures[i] == null) continue;
 
+                Vector2 structurePos = new Vector2(spawnedStructures[i].transform.position.x,
+                                                spawnedStructures[i].transform.position.z);
+                float structureDist = Vector2.Distance(myPos, structurePos);
 
-        // Debug.Log($"🔥 Suppression de la plaque : {name}");
-        spawnedTiles.Remove(myPos);
-        Destroy(gameObject);
+                if (structureDist < tileSize) // 📏 On ne supprime que celles proches de la plaque
+                {
+                    Destroy(spawnedStructures[i]);
+                    spawnedStructures[i] = null;
+                }
+            }
 
+            // 🔍 Nettoyage de la liste après suppression
+            spawnedStructures.RemoveAll(item => item == null);
 
+            // 🔥 Suppression de la plaque elle-même
+            spawnedTiles.Remove(myPos);
+            Destroy(gameObject);
+        }
     }
+
 
     IEnumerator CheckAndDestroyFarStructures()
     {

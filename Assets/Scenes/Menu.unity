@@ -3643,7 +3643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1232910607
 Transform:
   m_ObjectHideFlags: 0
@@ -5478,7 +5478,7 @@ PrefabInstance:
     - target: {fileID: 1721425924936655120, guid: f561d71fe1036cd46bd86e7a01a53be2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -44.673706
+      value: -44.67369
       objectReference: {fileID: 0}
     - target: {fileID: 1933792006693895336, guid: f561d71fe1036cd46bd86e7a01a53be2,
         type: 3}
@@ -6012,7 +6012,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Droit des marques
+  m_Text: DROITS DES MARQUES
 --- !u!222 &1697060226
 CanvasRenderer:
   m_ObjectHideFlags: 0
