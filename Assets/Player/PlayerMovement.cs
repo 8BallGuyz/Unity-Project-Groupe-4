@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool disable;
 
-
+    public int key = 0;
     public int hp = 100;
     public int maxhp = 100;
     public float walkSpeed = 5f;
