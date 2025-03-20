@@ -32,6 +32,12 @@ public class AI_Dave : MonoBehaviour
         }
 
         MoveToRandomPosition();
+
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            Player = playerObject.transform;
+        }
     }
 
     void Update()
