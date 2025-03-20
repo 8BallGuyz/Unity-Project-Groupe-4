@@ -230,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Stamina Usage
-        if (staminaLose == true && staminaBurnout == false && staminaRegen == false)
+        if (staminaLose == true && staminaBurnout == false && staminaRegen == false && isCrouching == false)
         {
             timerStamina += Time.deltaTime;
             if (timerStamina >= endStamina && stamina > staminaMin)
@@ -241,7 +241,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Stamina Regen
-        if (staminaRegen == true && staminaLose == false && staminaBurnout == false)
+        if (staminaRegen == true && staminaLose == false && staminaBurnout == false ||
+            staminaRegen == true && staminaLose == false && staminaBurnout == false && isCrouching == true)
         {
             timerStamina2 += Time.deltaTime;
             if (timerStamina2 >= endStamina && stamina < staminaCap)

@@ -12,7 +12,7 @@ public class level1_manager : MonoBehaviour
     public GameObject ghost;
 
     public float timer = 0;
-    public float end = 3;
+    public float end = 4;
     private bool cooldown = false;
 
     private bool popup1 = true;
