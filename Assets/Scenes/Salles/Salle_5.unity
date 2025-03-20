@@ -3853,6 +3853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactUI: {fileID: 711500631}
   doorAnimator: {fileID: 699610823}
+  player: {fileID: 0}
 --- !u!65 &699610821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8667,6 +8668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactUI: {fileID: 711500631}
   doorAnimator: {fileID: 1478278378}
+  player: {fileID: 1414058656}
 --- !u!65 &1478278376
 BoxCollider:
   m_ObjectHideFlags: 0

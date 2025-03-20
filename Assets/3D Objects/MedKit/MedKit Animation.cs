@@ -16,6 +16,7 @@ public class AnimationMedKit : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !hasClickedLeft) 
         {
+            Debug.Log("MedKit utilisé ------------------------");
             animator.SetBool("isPlaying", true);
             hasClickedLeft = true; 
 

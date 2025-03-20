@@ -944,6 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactUI: {fileID: 1790709102}
   doorAnimator: {fileID: 89401817}
+  player: {fileID: 355461390}
 --- !u!65 &89401815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4235,7 +4236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449106e6437f97a47ab61bec2b03712f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
   itemIcons: []
   itemModels: []
   maxSlots: 9
