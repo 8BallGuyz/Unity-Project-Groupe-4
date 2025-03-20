@@ -14,7 +14,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Poison") || other.CompareTag("Slime"))
+        if (other.CompareTag("Poison"))
         {
             LoadGameOverScene();
         }

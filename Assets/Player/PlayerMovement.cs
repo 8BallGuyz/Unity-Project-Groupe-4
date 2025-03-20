@@ -120,7 +120,18 @@ public class PlayerMovement : MonoBehaviour
             HandleJump();
         }
         ApplyGravity();
+                if (hp <= 0)
+        {
+            LoadGameOverScene();
+        }
 
+    }
+        private void LoadGameOverScene()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("GameOver");
     }
 
     void HandleHP() // NOT SET YET

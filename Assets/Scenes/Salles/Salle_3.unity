@@ -34481,7 +34481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daaf18ee696dfac42b03f8a5f9cf76d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1187923315}
   staminaSlider: {fileID: 93138859}
   soundSlider: {fileID: 1541739335}
   hpSlider: {fileID: 1747253274}
@@ -61025,6 +61025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactUI: {fileID: 1911047588}
   doorAnimator: {fileID: 1038693068}
+  player: {fileID: 0}
 --- !u!65 &1038693066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71387,19 +71388,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1856603364}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1187923313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187923310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc50ea713c20f341b90c293bafc1eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creditsText: {fileID: 0}
 --- !u!114 &1187923314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71412,6 +71400,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b331c3eeb9f30844395183bf5f750c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1187923315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 916548454902439359, guid: 75dc0456762d4e8428b8ad4fc094ce26,
+    type: 3}
+  m_PrefabInstance: {fileID: 1856603364}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187923310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6564dfe0d1f1f04d97635f90b937e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1187923316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7378636345520442120, guid: 75dc0456762d4e8428b8ad4fc094ce26,
+    type: 3}
+  m_PrefabInstance: {fileID: 1856603364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187923323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187923310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b3bd7957f88b54aab2af17363f91d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1187923315}
+  stats: {fileID: 617039348}
 --- !u!1 &1188990429
 GameObject:
   m_ObjectHideFlags: 0
@@ -83410,7 +83430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deplacement: 10
-  Player: {fileID: 0}
+  Player: {fileID: 1187923316}
   chaseRange: 10
   attackRange: 2
 --- !u!195 &1441188496
@@ -99566,7 +99586,7 @@ PrefabInstance:
     - target: {fileID: 5379954883267768729, guid: 48ddbcbdfce86b641bdac9cee7521801,
         type: 3}
       propertyPath: m_TagString
-      value: Slime
+      value: SlimeBoss
       objectReference: {fileID: 0}
     - target: {fileID: 6423991849870811933, guid: 48ddbcbdfce86b641bdac9cee7521801,
         type: 3}
@@ -99622,7 +99642,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1187923316}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -107047,11 +107067,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 44105294305608102, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1187923313}
+      addedObject: {fileID: 1187923314}
     - targetCorrespondingSourceObject: {fileID: 44105294305608102, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1187923314}
+      addedObject: {fileID: 1187923323}
   m_SourcePrefab: {fileID: 100100000, guid: 75dc0456762d4e8428b8ad4fc094ce26, type: 3}
 --- !u!4 &1858609682 stripped
 Transform:

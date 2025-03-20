@@ -17,6 +17,7 @@ TagManager:
   - Left
   - Poison
   - Slime
+  - SlimeBoss
   layers:
   - Default
   - TransparentFX
