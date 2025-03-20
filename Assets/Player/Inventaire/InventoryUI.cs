@@ -57,7 +57,7 @@ public class InventoryUI : MonoBehaviour
     {
         PlayerEquipment playerEquipment = FindObjectOfType<PlayerEquipment>();
 
-        if (index >= InventorySystem.instance.items.Count) // Vérifie si la case est vide
+        if (index >= InventorySystem.instance.itemModels.Count) // Vérifie si la case est vide
         {
             Debug.Log("❌ Aucun objet à cet emplacement !");
             
@@ -66,14 +66,27 @@ public class InventoryUI : MonoBehaviour
                 Debug.Log("🔄 Déséquipement de l'objet actuel.");
                 playerEquipment.UnequipItem(); // Déséquipe l'objet actuel
             }
-
             return;
         }
 
-    // Équipe le nouvel objet
-    GameObject selectedItemModel = InventorySystem.instance.itemModels[index];
-    playerEquipment?.EquipItem(selectedItemModel);
-}
+        // Récupère le modèle 3D depuis l'inventaire
+        GameObject selectedItemPrefab = InventorySystem.instance.itemModels[index];
+
+        if (selectedItemPrefab == null)
+        {
+            Debug.LogError("❌ Le modèle de l'objet est NULL !");
+            return;
+        }
+
+        // Instancie l'objet dans la scène
+        //GameObject instantiatedItem = Instantiate();
+        
+        // Appelle EquipItem avec l'objet instancié
+        playerEquipment?.EquipItem(selectedItemPrefab);
+
+        Debug.Log($"✅ Objet {selectedItemPrefab.name} équipé !");
+    }
+
 
 
     public void RefreshUI()
