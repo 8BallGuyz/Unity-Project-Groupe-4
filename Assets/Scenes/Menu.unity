@@ -1639,7 +1639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fb8c212e5cdbd43be0df6fdc567ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAmbience: {fileID: 8300000, guid: 75ea0fe959fe5b542b32b06fbd6a591a, type: 3}
+  defaultAmbience: {fileID: 8300000, guid: 17d466ffe4bf24547886b5f8dbb01bd2, type: 3}
 --- !u!4 &535060068
 Transform:
   m_ObjectHideFlags: 0
