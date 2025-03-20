@@ -380,6 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73a7a8d3c4ea49448086dffd55e2b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcons: []
+  itemModels: []
   currentRoomName: 
   nextRoomName: 
   credits: 0

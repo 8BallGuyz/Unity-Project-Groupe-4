@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour
 {
-
-
+    public List<Sprite> itemIcons = new List<Sprite>();
+    public List<GameObject> itemModels = new List<GameObject>(); // 🔹 Stockage des modèles 3D
 
 
     public string currentRoomName; // Salle actuelle
@@ -35,6 +35,12 @@ public class RoomManager : MonoBehaviour
         {
             Destroy(gameObject); // Évite les doublons
         }
+    }
+
+    public void SaveInventory(List<Sprite> invIcons, List<GameObject> invModels)
+    {
+        itemIcons = new List<Sprite>(invIcons);
+        itemModels = new List<GameObject>(invModels);
     }
     
     public void AddCredits(int amount)
@@ -203,7 +209,11 @@ public class RoomManager : MonoBehaviour
             else
                 nextRoomName = "Salle_Fin"; 
 
+
+            SaveInventory(InventorySystem.instance.itemIcons, InventorySystem.instance.itemModels);
             SceneManager.LoadScene(currentRoomName);
+
+
 
         }
         else

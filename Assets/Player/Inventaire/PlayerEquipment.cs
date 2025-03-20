@@ -12,12 +12,14 @@ public class PlayerEquipment : MonoBehaviour
             return;
         }
 
-        if (currentEquippedItem != null)
+        // 🔥 Vérifie si un objet est déjà équipé et le détruit avant d’en ajouter un nouveau
+        if (currentEquippedItem == null)
         {
-            Destroy(currentEquippedItem); // 🔹 Supprime l’ancien objet
+            Debug.Log(currentEquippedItem);
+            currentEquippedItem = Instantiate(itemModel, handTransform.position, handTransform.rotation, handTransform); // 🔹 Instancie l'objet
         }
 
-        currentEquippedItem = Instantiate(itemModel, handTransform.position, handTransform.rotation, handTransform); // 🔹 Instancie l'objet
+
         currentEquippedItem.SetActive(true); // 🔹 Active l'objet s'il était désactivé
         Debug.Log($"🎮 Équipé : {itemModel.name}");
     }
@@ -31,8 +33,7 @@ public class PlayerEquipment : MonoBehaviour
     {
         if (currentEquippedItem != null)
         {
-            Destroy(currentEquippedItem); // Supprime l'objet actuellement équipé
-            currentEquippedItem = null;
+            currentEquippedItem.SetActive(false); // 🔹 Active l'objet s'il était désactivé
             Debug.Log("🛑 Objet déséquipé !");
         }
     }
