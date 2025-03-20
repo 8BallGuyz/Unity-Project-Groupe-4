@@ -9,6 +9,7 @@ public class DoorTrigger : MonoBehaviour
     public Animator doorAnimator; // Référence à l'Animator de la porte
     private bool isPlayerNear = false;
     private bool isTransitioning = false;
+    public PlayerMovement player;
 
     private void Start()
     {
@@ -37,6 +38,9 @@ public class DoorTrigger : MonoBehaviour
     {
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && !isTransitioning)
         {
+            player.walkSpeed = 4;
+            player.sprintSpeed = 6; // Reset Speed in labyrinthe
+
             interactUI.SetActive(false); // Cache le message
 
             isTransitioning = true;
