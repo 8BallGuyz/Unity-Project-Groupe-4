@@ -26,10 +26,6 @@ public class AI_Dave : MonoBehaviour
         {
             animator = daveTransform.GetComponent<Animator>();
         }
-        else
-        {
-            Debug.LogError("L'enfant 'Dave' n'a pas été trouvé dans la hiérarchie !");
-        }
 
         MoveToRandomPosition();
     }
