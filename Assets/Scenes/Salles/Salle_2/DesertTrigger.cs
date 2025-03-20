@@ -23,7 +23,7 @@ public class DesertTrigger : MonoBehaviour
             InfiniteDesert parentScript = GetComponentInParent<InfiniteDesert>();
             if (parentScript != null && direction == "Center")
             {
-                Debug.Log($"🚀 OnTriggerExit détecté sur {transform.parent.name} (Trigger: {name})");
+                // Debug.Log($"🚀 OnTriggerExit détecté sur {transform.parent.name} (Trigger: {name})");
                 parentScript.OnPlayerExitTrigger();
             }
         }

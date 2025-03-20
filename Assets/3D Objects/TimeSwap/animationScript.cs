@@ -7,6 +7,9 @@ public class AnimationSwitcher : MonoBehaviour
     private Animator animator;
     private bool hasClickedLeft = false;
 
+    public delegate void AnimationStarted(); 
+    public static event AnimationStarted OnTurningStarted; 
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -14,11 +17,17 @@ public class AnimationSwitcher : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !hasClickedLeft) // Clic gauche (une seule fois)
+        if (Input.GetMouseButtonDown(0) && !hasClickedLeft) 
         {
             animator.Play("Turning", 0, 0f);
             animator.SetBool("isPlaying", true);
-            hasClickedLeft = true; // Désactive le clic gauche après une utilisation
+            hasClickedLeft = true; 
+            
+            if (OnTurningStarted != null)
+            {
+                OnTurningStarted();
+            }
         }
     }
 }
+

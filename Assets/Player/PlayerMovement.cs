@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
     public stats_manager stats;
     public bool movementManager = true;
 
+    public bool disable;
+
+
     public int hp = 100;
     public int maxhp = 100;
     public float walkSpeed = 5f;
@@ -16,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float mouseSensitivity = 2f;
 
     public float speed;
-    private CharacterController controller;
+    public CharacterController controller;
     private float xRotation = 0f;
     public Transform playerCamera;
 
@@ -24,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private float standingHeight = 2f;
     private float crouchingHeight = 1.2f;
 
-    private Vector3 velocity;
+    public Vector3 velocity;
     public float gravity = -9.81f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -72,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     public float endSound3 = 0.2f;
     private bool soundController = false; 
     private string lastSceneName;
+    
 
 
 
@@ -116,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
             HandleJump();
         }
         ApplyGravity();
+
     }
 
     void HandleHP() // NOT SET YET
