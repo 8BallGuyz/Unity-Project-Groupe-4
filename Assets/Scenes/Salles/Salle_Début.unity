@@ -39962,7 +39962,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test 3
+  m_text: "       Mais vous\u2026 vous avez \n       encore une chance. \n      
+    \xC9coutez-moi, \xE9vitez ce\n       qui r\xF4de et passez la \n       prochaine
+    porte\u2026 Peut-\xEAtre \n       r\xE9ussirez-vous l\xE0 o\xF9 j\u2019ai \xE9chou\xE9."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -51878,7 +51880,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test 2
+  m_text: "     Ce manoir n\u2019\xE9tait autrefois\n     que luxe et faste\u2026
+    \n     jusqu\u2019\xE0 ce que l\u2019ombre \n     s\u2019y installe et tout d\xE9vore. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -130641,7 +130644,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test 1
+  m_text: "       Vous n\u2019auriez jamais \n        d\xFB entrer dans le ch\xE2teau
+    \n        des Chantemorts."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
