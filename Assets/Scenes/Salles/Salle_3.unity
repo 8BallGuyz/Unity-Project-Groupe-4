@@ -61025,7 +61025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactUI: {fileID: 1911047588}
   doorAnimator: {fileID: 1038693068}
-  player: {fileID: 0}
+  player: {fileID: 1187923315}
 --- !u!65 &1038693066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70017,7 +70017,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f17235bafe8b0d469e636afc026556f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2109298572}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f17235bafe8b0d469e636afc026556f, type: 3}
 --- !u!4 &1159121124 stripped
@@ -93914,7 +93918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fb8c212e5cdbd43be0df6fdc567ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAmbience: {fileID: 8300000, guid: 75ea0fe959fe5b542b32b06fbd6a591a, type: 3}
+  defaultAmbience: {fileID: 8300000, guid: f7426deb1c2de4f4c804c7350f350fcd, type: 3}
 --- !u!4 &1623289955
 Transform:
   m_ObjectHideFlags: 0
@@ -104945,8 +104949,8 @@ Transform:
   m_GameObject: {fileID: 1815465784}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.8, y: 7.872666, z: 17.105854}
-  m_LocalScale: {x: 58.80241, y: 12, z: 38.4384}
+  m_LocalPosition: {x: 13.2, y: 7.872666, z: 17.105854}
+  m_LocalScale: {x: 73.82, y: 58.9, z: 166.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1623289955}
@@ -104963,7 +104967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d06c8707cb32b47bffc3cb35b36068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambienceClip: {fileID: 8300000, guid: 03bfb061bfe8a95439b0f56b0043c1d8, type: 3}
+  ambienceClip: {fileID: 8300000, guid: 1cc9f1b9127fed44a99217177a0d8ddc, type: 3}
 --- !u!65 &1815465787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119353,8 +119357,8 @@ Transform:
   m_GameObject: {fileID: 2067743990}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 81.65292, y: 7.872666, z: 17.105854}
-  m_LocalScale: {x: 16.70523, y: 12, z: 20.02}
+  m_LocalPosition: {x: 72.52, y: 7.872666, z: 19.93}
+  m_LocalScale: {x: 39.1, y: 12, z: 20.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1623289955}
@@ -119371,7 +119375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d06c8707cb32b47bffc3cb35b36068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambienceClip: {fileID: 8300000, guid: 75ea0fe959fe5b542b32b06fbd6a591a, type: 3}
+  ambienceClip: {fileID: 8300000, guid: f7426deb1c2de4f4c804c7350f350fcd, type: 3}
 --- !u!1001 &2069838633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122233,6 +122237,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108698764}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2109298571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2109298572}
+  - component: {fileID: 2109298574}
+  - component: {fileID: 2109298573}
+  m_Layer: 0
+  m_Name: ZoneSlime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2109298572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109298571}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7010217, z: -0, w: -0.71314}
+  m_LocalPosition: {x: -0.124458924, y: 0.44682527, z: -0.043328732}
+  m_LocalScale: {x: 6, y: 2, z: 6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1332925357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109298573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109298571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d06c8707cb32b47bffc3cb35b36068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambienceClip: {fileID: 0}
+--- !u!65 &2109298574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109298571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2109927864
 PrefabInstance:
   m_ObjectHideFlags: 0
