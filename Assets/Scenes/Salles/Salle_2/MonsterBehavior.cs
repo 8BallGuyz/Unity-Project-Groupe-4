@@ -52,7 +52,7 @@ public class MonsterBehavior : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.position);
 
         // Gestion de l'invisibilité
-        if (distance > attackRange * 3)
+        if (distance > attackRange * 8)
         {
             if (isVisible)
             {

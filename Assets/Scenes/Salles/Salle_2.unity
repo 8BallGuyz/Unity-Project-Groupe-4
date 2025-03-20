@@ -1549,7 +1549,7 @@ PrefabInstance:
     - target: {fileID: 916548454902439359, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
       propertyPath: stamina
-      value: 10000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 916548454902439359, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
@@ -1564,7 +1564,7 @@ PrefabInstance:
     - target: {fileID: 916548454902439359, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
       propertyPath: staminaCap
-      value: 10000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 916548454902439359, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
