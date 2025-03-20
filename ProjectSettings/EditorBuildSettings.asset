@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: "Assets/Scenes/Salles/Salle_D\xE9but.unity"
     guid: 7fb4d822a84691b4588506121271920a
   - enabled: 1
+    path: Assets/Scenes/Salles/Salle_Fin.unity
+    guid: 504fc07639a66f4429f80adf00ca08ba
+  - enabled: 1
     path: Assets/Scenes/GameOver/GameOver.unity
     guid: 060fdb2c9dfbd41f58dfa32413b1c499
   - enabled: 1
