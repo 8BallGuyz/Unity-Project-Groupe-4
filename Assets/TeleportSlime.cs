@@ -4,28 +4,62 @@ using UnityEngine;
 
 public class TeleportSlime : MonoBehaviour
 {
-    public GameObject pud1; // Référence à l'objet Pud
-    public GameObject pud2; // Référence à l'objet Pud (1)
+    public GameObject[] puds; // Positions possibles
+    public GameObject slimePrefab; // Prefab du Slime
+
+    private bool isOriginal = true; // Indique si c'est le Slime de base
+    private int cloneCount = 0; // Nombre de clones créés
+    private int maxClones = 20; // Limite de clones
 
     private void Start()
     {
-        // Assure-toi que les objets Pud sont bien assignés dans l'inspecteur
-        if (pud1 == null || pud2 == null)
+        if (puds == null || puds.Length == 0)
         {
-            Debug.LogError("Les objets Pud1 et Pud2 doivent être assignés !");
+            Debug.LogError("Aucun point de téléportation assigné !");
             return;
         }
 
-        // Appeler la fonction de téléportation toutes les 10 secondes
-        InvokeRepeating("TeleportRandomly", 0f, 10f);
+        if (slimePrefab == null)
+        {
+            Debug.LogError("Aucun prefab de Slime assigné !");
+            return;
+        }
+
+        // Seul le Slime original lance la boucle de téléportation
+        if (isOriginal)
+        {
+            StartCoroutine(TeleportLoop());
+        }
     }
 
-    public void TeleportRandomly()
+    private IEnumerator TeleportLoop()
     {
-        // Choisir aléatoirement entre pud1 et pud2
-        Vector3 targetPosition = Random.value < 0.5f ? pud1.transform.position : pud2.transform.position;
+        while (cloneCount < maxClones) // Arrête la boucle après 20 clones
+        {
+            yield return new WaitForSeconds(1f);
+            TeleportAndDuplicate();
+        }
+    }
 
-        // Déplacer le Slime à la position choisie
-        transform.position = targetPosition;
+    private void TeleportAndDuplicate()
+    {
+        if (puds.Length == 0 || cloneCount >= maxClones) return;
+
+        int randomIndex = Random.Range(0, puds.Length);
+        Vector3 newPosition = puds[randomIndex].transform.position;
+
+        // Téléporte uniquement le Slime original
+        transform.position = newPosition;
+
+        // Crée un clone à la nouvelle position
+        GameObject clone = Instantiate(slimePrefab, newPosition, Quaternion.identity);
+
+        // Marque le clone comme non-original (il ne pourra pas se dupliquer)
+        clone.GetComponent<TeleportSlime>().isOriginal = false;
+
+        // Incrémente le compteur de clones
+        cloneCount++;
+
+        Debug.Log($"Slime téléporté et clone créé ({cloneCount}/{maxClones}) à : {newPosition}");
     }
 }
