@@ -13,29 +13,35 @@ public class PlayerEquipment : MonoBehaviour
         }
 
         // 🔥 Vérifie si un objet est déjà équipé et le détruit avant d’en ajouter un nouveau
-        if (currentEquippedItem == null)
+        if (currentEquippedItem != null)
         {
-            Debug.Log(currentEquippedItem);
-            currentEquippedItem = Instantiate(itemModel, handTransform.position, handTransform.rotation, handTransform); // 🔹 Instancie l'objet
+            Debug.Log($"🛑 Suppression de l'ancien objet : {currentEquippedItem.name}");
+            Destroy(currentEquippedItem);
         }
 
+        // 🔹 Instancie le nouvel objet et l'attache à la main du joueur
+        currentEquippedItem = Instantiate(itemModel, handTransform);
+        currentEquippedItem.transform.localPosition = Vector3.zero; // 🔹 Le place correctement
+        currentEquippedItem.transform.localRotation = Quaternion.identity;
+        currentEquippedItem.SetActive(true);
 
-        currentEquippedItem.SetActive(true); // 🔹 Active l'objet s'il était désactivé
-        Debug.Log($"🎮 Équipé : {itemModel.name}");
+        Debug.Log($"🎮 Équipé : {currentEquippedItem.name}");
     }
+
 
     public bool HasEquippedItem()
     {
         return currentEquippedItem != null; // Vérifie si un objet est équipé
     }
-
     public void UnequipItem()
     {
         if (currentEquippedItem != null)
         {
-            currentEquippedItem.SetActive(false); // 🔹 Active l'objet s'il était désactivé
-            Debug.Log("🛑 Objet déséquipé !");
+            Debug.Log($"🛑 Déséquipement de : {currentEquippedItem.name}");
+            Destroy(currentEquippedItem); // 🔥 On le supprime complètement
+            currentEquippedItem = null;
         }
     }
+
 
 }
