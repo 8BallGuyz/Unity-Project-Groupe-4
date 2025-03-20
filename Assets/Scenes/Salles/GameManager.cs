@@ -204,6 +204,7 @@ public class RoomManager : MonoBehaviour
                 nextRoomName = "Salle_Fin"; 
 
             SceneManager.LoadScene(currentRoomName);
+
         }
         else
         {
