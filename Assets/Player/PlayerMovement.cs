@@ -276,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
                 timerSound2 = 0;
             }
         }
-        else if (!isCrouching && moving && soundController == false) // Sound goes up when walking
+        else if (isCrouching == false && moving && soundController == false) // Sound goes up when walking
         {
             timerSound3 += Time.deltaTime;
             if (timerSound3 >= endSound3)
@@ -294,7 +294,7 @@ public class PlayerMovement : MonoBehaviour
                 timerSound = 0;
             }
         }
-        else if (isCrouching && !moving && soundController == false) // Sound also decreases when crouching and stationary
+        else if (isCrouching == true && !moving && soundController == false) // Sound also decreases when crouching and stationary
         {
             timerSound += Time.deltaTime;
             if (timerSound >= endSound)
@@ -303,7 +303,7 @@ public class PlayerMovement : MonoBehaviour
                 timerSound = 0;
             }
         }
-        else if (isCrouching && moving) // Sound also decreases when crouching and stationary
+        else if (isCrouching == true && moving) // Sound also decreases when crouching and stationary
         {
             soundController = true;
             endSound = 0.35f;
