@@ -12,14 +12,16 @@ public class AidesScript : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+                if (!isPlaying)
+        {
+            StartCoroutine(PlaySoundsSequentially());
+        }
     }
 
     void Update()
     {
-        if (!isPlaying)
-        {
-            StartCoroutine(PlaySoundsSequentially());
-        }
+
     }
 
     IEnumerator PlaySoundsSequentially()
