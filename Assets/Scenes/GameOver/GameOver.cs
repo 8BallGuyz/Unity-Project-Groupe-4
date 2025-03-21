@@ -52,5 +52,8 @@ public class GameOver : MonoBehaviour
                 break;
         }
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
     }
 }
