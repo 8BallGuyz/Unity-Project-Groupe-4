@@ -19495,6 +19495,59 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &205933631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205933634}
+  - component: {fileID: 205933633}
+  m_Layer: 0
+  m_Name: "AidesD\xE9part"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &205933633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205933631}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &205933634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205933631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.98, y: 2.58, z: -1.8739935}
+  m_LocalScale: {x: 7.2313, y: 7.2313, z: 7.2313}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210392206
 GameObject:
   m_ObjectHideFlags: 0
@@ -35357,7 +35410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &687840731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35376,7 +35429,7 @@ MonoBehaviour:
   text3: {fileID: 854999965}
   ghost: {fileID: 1822256658}
   timer: 0
-  end: 3
+  end: 4
 --- !u!4 &687840732
 Transform:
   m_ObjectHideFlags: 0
@@ -165098,7 +165151,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 44105294305608102, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 463296659056882709}
+      addedObject: {fileID: 463296659056882717}
+    - targetCorrespondingSourceObject: {fileID: 44105294305608102, guid: 75dc0456762d4e8428b8ad4fc094ce26,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 463296659056882718}
   m_SourcePrefab: {fileID: 100100000, guid: 75dc0456762d4e8428b8ad4fc094ce26, type: 3}
 --- !u!1 &463296659056882706 stripped
 GameObject:
@@ -165119,7 +165176,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsText: {fileID: 0}
---- !u!114 &463296659056882709
+--- !u!114 &463296659056882717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463296659056882706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe81fa1cf7f35b4fa9cc384ea32fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 3bcd8605cf584b940adf0a80a2bbec1d, type: 3}
+  - {fileID: 8300000, guid: 6ac71f98293adf84b9c0fa01da8f6246, type: 3}
+  - {fileID: 8300000, guid: dfe5ec776441beb429e19662a5745a7c, type: 3}
+  - {fileID: 8300000, guid: 93a7622190c6649409c7f45cb7ebec64, type: 3}
+  - {fileID: 8300000, guid: 1a45719eeb3d07f4b9c9bd00f163b8bb, type: 3}
+  - {fileID: 8300000, guid: 3502541c48aa6134b9948fb1d4825559, type: 3}
+  - {fileID: 8300000, guid: 0fdf0adda3f9b7444b38f672efe85abb, type: 3}
+  - {fileID: 8300000, guid: ebd0761ebb40b874681ab2f5b14cf804, type: 3}
+  - {fileID: 8300000, guid: de279c7211e238f46a3a611c4cf445b7, type: 3}
+  startKey: 0
+--- !u!114 &463296659056882718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165132,8 +165212,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keySoundPairs:
+  - key: 114
+    soundClip: {fileID: 8300000, guid: 442156b2e57f95b44855bfa7fc41394f, type: 3}
+  - key: 116
+    soundClip: {fileID: 8300000, guid: cd2f99683ed164645b2fe30fe356fbba, type: 3}
   - key: 101
-    soundClip: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: 0fdf0adda3f9b7444b38f672efe85abb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -165161,3 +165245,4 @@ SceneRoots:
   - {fileID: 621158248}
   - {fileID: 1729139839}
   - {fileID: 640183681}
+  - {fileID: 205933634}
