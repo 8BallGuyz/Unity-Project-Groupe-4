@@ -4,18 +4,15 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    public Text creditsText; // Text displaying credits
+    public Text creditsText; 
 
     void Awake()
     {
-        instance = this; // Singleton
+        instance = this;
 
-        // Try to find the Text component if it's null
         if (creditsText == null)
         {
             creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
-            // Or use a more specific path if needed
-            // creditsText = transform.Find("Canvas/Panel/CreditsText").GetComponent<Text>();
 
             if (creditsText == null)
                 Debug.LogError("Credits Text reference not set and could not be found!");
@@ -24,7 +21,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        // Wait a frame to ensure RoomManager is initialized
         Invoke("UpdateCreditsText", 0.1f);
     }
 
