@@ -14,6 +14,7 @@ public class InventorySystem : MonoBehaviour
 
     private void Start()
     {
+        int equippedIndex = FindObjectOfType<InventoryUI>().GetEquippedItemIndex();
         if (RoomManager.instance != null)
         {
             itemIcons = new List<Sprite>(RoomManager.instance.itemIcons);
@@ -26,8 +27,6 @@ public class InventorySystem : MonoBehaviour
     {
         if (instance == null) instance = this;
     }
-
-    int equippedIndex = FindObjectOfType<InventoryUI>().GetEquippedItemIndex();
 
     void Update()
     {

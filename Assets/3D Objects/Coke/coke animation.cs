@@ -25,7 +25,8 @@ public class CokeAnimation : MonoBehaviour
 
     private float CurrentSprintSpeed;
 
-    int equippedIndex = FindObjectOfType<InventoryUI>().GetEquippedItemIndex();
+    private int equippedIndex;
+
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class CokeAnimation : MonoBehaviour
         CurrentSprintSpeed = player3.defaultSprintSpeed;
 
         inventorySystem = FindObjectOfType<InventorySystem>();
+        equippedIndex = FindObjectOfType<InventoryUI>().GetEquippedItemIndex();
     }
 
 

@@ -15760,7 +15760,7 @@ PrefabInstance:
     - target: {fileID: 916548454902439359, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
       propertyPath: hp
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 916548454902439359, guid: 75dc0456762d4e8428b8ad4fc094ce26,
         type: 3}
@@ -211308,55 +211308,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1858562244
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1858562246}
-  - component: {fileID: 1858562245}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1858562245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858562244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73a7a8d3c4ea49448086dffd55e2b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIcons: []
-  itemModels: []
-  currentRoomName: 
-  nextRoomName: 
-  credits: 100
---- !u!4 &1858562246
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858562244}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.49043, y: -8.343395, z: 9.700147}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882737490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c355e04ba8536941a95b6301393deaf,
@@ -237480,7 +237431,6 @@ SceneRoots:
   - {fileID: 1254235858}
   - {fileID: 1917964637}
   - {fileID: 1483051914}
-  - {fileID: 1858562246}
   - {fileID: 1534987769}
   - {fileID: 1804225281}
   - {fileID: 8715134026080655192}
