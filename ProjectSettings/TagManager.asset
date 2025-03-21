@@ -18,6 +18,7 @@ TagManager:
   - Poison
   - Slime
   - SlimeBoss
+  - Dave
   layers:
   - Default
   - TransparentFX
