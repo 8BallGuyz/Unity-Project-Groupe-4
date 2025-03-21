@@ -18,6 +18,8 @@ TagManager:
   - Poison
   - Slime
   - SlimeBoss
+  - Segment
+  - Scissor
   layers:
   - Default
   - TransparentFX

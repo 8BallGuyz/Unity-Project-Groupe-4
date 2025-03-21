@@ -84,8 +84,8 @@ public class ChaseTrigger : MonoBehaviour
         if (monsterAI != null && spawnPoint != null)
         {
             monsterAI.GetComponent<NavMeshAgent>().Warp(spawnPoint.position);
-            monsterAI.chaseDuration = 6f;
-            monsterAI.agent.speed = 6.4f;
+            monsterAI.chaseDuration = 10f;
+            monsterAI.agent.speed = 6f;
             monsterAI.StartChasing();
         }
         else

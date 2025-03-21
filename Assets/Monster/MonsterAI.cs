@@ -214,6 +214,23 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
+    public void RemoveSegment()
+    {
+        if (segments.Count > 0)
+        {
+            Transform segmentToRemove = segments[segments.Count - 1]; // Dernier segment
+            segments.Remove(segmentToRemove);
+            Destroy(segmentToRemove.gameObject);
+            Debug.Log("Segment supprimé, il reste " + segments.Count + " segments.");
+        }
+        else
+        {
+            Debug.Log("Plus de segments à supprimer !");
+        }
+    }
+
+
+
     public void StartChasing()
     {
         isChasing = true;
