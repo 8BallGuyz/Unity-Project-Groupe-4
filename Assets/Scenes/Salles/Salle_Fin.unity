@@ -4008,7 +4008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449106e6437f97a47ab61bec2b03712f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
   itemIcons: []
   itemModels: []
   maxSlots: 9
@@ -18146,7 +18145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1623289954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18159,7 +18158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fb8c212e5cdbd43be0df6fdc567ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAmbience: {fileID: 8300000, guid: 75ea0fe959fe5b542b32b06fbd6a591a, type: 3}
+  defaultAmbience: {fileID: 8300000, guid: d336a78cbb6ab2d4eafe6adbab22f329, type: 3}
 --- !u!4 &1623289955
 Transform:
   m_ObjectHideFlags: 0
