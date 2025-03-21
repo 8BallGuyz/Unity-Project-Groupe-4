@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
     public Transform handTransform; // 🔹 Emplacement où afficher l'objet (à assigner dans Unity)
-    private GameObject currentEquippedItem;
+    public GameObject currentEquippedItem;
     public void EquipItem(GameObject itemModel)
     {
         if (itemModel == null)

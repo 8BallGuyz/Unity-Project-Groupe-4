@@ -8,6 +8,8 @@ public class InventoryUI : MonoBehaviour
     public Transform slotParent;
     public GameObject slotPrefab;
     public PlayerMovement playerMovement; // 🔹 Référence au PlayerMovement
+    private int equippedItemIndex = -1; // -1 signifie qu'aucun objet n'est équipé
+
 
     private List<GameObject> slots = new List<GameObject>();
     private bool isOpen = false;
@@ -66,6 +68,7 @@ public class InventoryUI : MonoBehaviour
                 Debug.Log("🔄 Déséquipement de l'objet actuel.");
                 playerEquipment.UnequipItem(); // Déséquipe l'objet actuel
             }
+            equippedItemIndex = -1; // Aucun objet équipé
             return;
         }
 
@@ -85,7 +88,14 @@ public class InventoryUI : MonoBehaviour
         playerEquipment?.EquipItem(selectedItemPrefab);
 
         Debug.Log($"✅ Objet {selectedItemPrefab.name} équipé !");
+        equippedItemIndex = index; // 🔹 Stocke l'index de l'objet équipé
     }
+
+    public int GetEquippedItemIndex()
+    {
+        return equippedItemIndex;
+    }
+
 
 
 

@@ -15,11 +15,17 @@ public class CokeAnimation : MonoBehaviour
     private float timer = 0f;
     private float endTimer = 5f;
 
+    public PlayerEquipment playerEquipment;
+
+    public InventorySystem inventorySystem;
+
 
 
     private float CurrentWalkSpeed;
 
     private float CurrentSprintSpeed;
+
+    int equippedIndex = FindObjectOfType<InventoryUI>().GetEquippedItemIndex();
 
     void Start()
     {
@@ -28,7 +34,10 @@ public class CokeAnimation : MonoBehaviour
         stats3 = FindObjectOfType<stats_manager>();
         CurrentWalkSpeed = player3.walkSpeed;
         CurrentSprintSpeed = player3.defaultSprintSpeed;
+
+        inventorySystem = FindObjectOfType<InventorySystem>();
     }
+
 
     void Update()
     {
@@ -39,6 +48,7 @@ public class CokeAnimation : MonoBehaviour
             player3.defaultSprintSpeed = CurrentSprintSpeed + 4;
             if (timer >= endTimer)
             {
+                inventorySystem.RemoveItem(equippedIndex);
                 timer = 0;
                 player3.walkSpeed = CurrentWalkSpeed;
                 player3.defaultSprintSpeed = CurrentSprintSpeed;
@@ -48,9 +58,9 @@ public class CokeAnimation : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !hasClickedLeft) 
         {
+            Activator = true;
             animator.SetBool("isPlaying", true);
             hasClickedLeft = true; 
-            Activator = true;
             
 
         }

@@ -4800,6 +4800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449106e6437f97a47ab61bec2b03712f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerEquipment: {fileID: 0}
   itemIcons: []
   itemModels: []
   maxSlots: 9
