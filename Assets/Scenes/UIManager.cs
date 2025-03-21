@@ -4,24 +4,35 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    public Text creditsText; // 🔹 Le texte affichant les crédits
+    public Text creditsText; 
 
     void Awake()
     {
-        instance = this; // Singleton
+        instance = this;
+
+        if (creditsText == null)
+        {
+            creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
+
+            if (creditsText == null)
+                Debug.LogError("Credits Text reference not set and could not be found!");
+        }
     }
 
     void Start()
     {
-        UpdateCreditsText(); // 🔹 Met à jour l'affichage au démarrage
+        Invoke("UpdateCreditsText", 0.1f);
     }
 
     public void UpdateCreditsText()
     {
-        if (creditsText != null)
+        if (creditsText != null && RoomManager.instance != null)
         {
             creditsText.text = RoomManager.instance.GetCredits().ToString();
-
+        }
+        else
+        {
+            Debug.LogWarning("Unable to update credits text. Missing references.");
         }
     }
 }
