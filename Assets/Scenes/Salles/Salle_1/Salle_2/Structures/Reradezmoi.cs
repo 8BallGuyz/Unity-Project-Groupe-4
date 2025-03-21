@@ -32,6 +32,7 @@ public class ArcDeCercleLune : MonoBehaviour
 
     void Start()
     {
+        luneTombee = false; 
         // Récupère les effets de post-processing
         if (postProcessVolume != null)
         {
