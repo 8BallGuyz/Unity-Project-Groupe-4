@@ -33,6 +33,10 @@ public class PlayerDamage : MonoBehaviour
             {
                 StartCoroutine(TakeDamage(100)); 
             }
+            else if (other.CompareTag("Dave"))
+            {
+                StartCoroutine(TakeDamage(50)); 
+            }
         }
     }
 
